@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterMascore.master" CodeBehind="MostrarDigitActaCCC.aspx.vb" Inherits="SNTE5.MostrarDigitActaCCC" MaintainScrollPositionOnPostback ="true" %>

@@ -1,0 +1,2494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{A2652AFB-E1ED-4359-8D8C-7DBCD1759DAB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SNTE5</RootNamespace>
+    <AssemblyName>SNTE5</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44389</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SNTE5.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SNTE5.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=20.10.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.20.10.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="DocX">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADODB, Version=2.8.0.0, Culture=neutral, PublicKeyToken=null">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.ADOX">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Interop.ADOX.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.CDO">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Interop.CDO.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.DYNAMICWEBTWAINCTRLLib">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Interop.DYNAMICWEBTWAINCTRLLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.OLEDBError">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Interop.OLEDBError.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.stdole">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Interop.stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SocialExplorer.FastDBF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocialExplorer.FastDBF.1.0.0\lib\netstandard2.0\SocialExplorer.FastDBF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syroot.KnownFolders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.2.3\lib\netstandard2.0\Syroot.KnownFolders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="wnvwordtopdf">
+      <HintPath>..\..\..\Users\Elizabeth\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\SALTILLO\trunk\WebSite\SALTILLO\bin\wnvwordtopdf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\DocX.dll" />
+    <Content Include="bin\Interop.ADODB.dll" />
+    <Content Include="bin\Interop.ADOX.dll" />
+    <Content Include="bin\Interop.CDO.dll" />
+    <Content Include="bin\Interop.DYNAMICWEBTWAINCTRLLib.dll" />
+    <Content Include="bin\Interop.Microsoft.Office.Core.dll" />
+    <Content Include="bin\Interop.Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="bin\Interop.Microsoft.Office.Interop.Word.dll" />
+    <Content Include="bin\Interop.OLEDBError.dll" />
+    <Content Include="bin\Interop.stdole.dll" />
+    <Content Include="bin\Ionic.Zip.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\Microsoft.AspNet.Scaffolding.12.0.dll" />
+    <Content Include="bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\netstandard.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\RestSharp.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\SNTE5.dll" />
+    <Content Include="bin\SNTE5.pdb" />
+    <Content Include="bin\SNTE5.xml" />
+    <Content Include="bin\SocialExplorer.FastDBF.dll" />
+    <Content Include="bin\Syroot.KnownFolders.dll" />
+    <Content Include="bin\System.AppContext.dll" />
+    <Content Include="bin\System.Collections.Concurrent.dll" />
+    <Content Include="bin\System.Collections.dll" />
+    <Content Include="bin\System.Collections.NonGeneric.dll" />
+    <Content Include="bin\System.Collections.Specialized.dll" />
+    <Content Include="bin\System.ComponentModel.dll" />
+    <Content Include="bin\System.ComponentModel.EventBasedAsync.dll" />
+    <Content Include="bin\System.ComponentModel.Primitives.dll" />
+    <Content Include="bin\System.ComponentModel.TypeConverter.dll" />
+    <Content Include="bin\System.Console.dll" />
+    <Content Include="bin\System.Data.Common.dll" />
+    <Content Include="bin\System.Diagnostics.Contracts.dll" />
+    <Content Include="bin\System.Diagnostics.Debug.dll" />
+    <Content Include="bin\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\System.Diagnostics.Process.dll" />
+    <Content Include="bin\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\System.Diagnostics.TextWriterTraceListener.dll" />
+    <Content Include="bin\System.Diagnostics.Tools.dll" />
+    <Content Include="bin\System.Diagnostics.TraceSource.dll" />
+    <Content Include="bin\System.Diagnostics.Tracing.dll" />
+    <Content Include="bin\System.Drawing.Primitives.dll" />
+    <Content Include="bin\System.Dynamic.Runtime.dll" />
+    <Content Include="bin\System.Globalization.Calendars.dll" />
+    <Content Include="bin\System.Globalization.dll" />
+    <Content Include="bin\System.Globalization.Extensions.dll" />
+    <Content Include="bin\System.IO.Compression.dll" />
+    <Content Include="bin\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\System.IO.dll" />
+    <Content Include="bin\System.IO.FileSystem.dll" />
+    <Content Include="bin\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\System.IO.FileSystem.Watcher.dll" />
+    <Content Include="bin\System.IO.IsolatedStorage.dll" />
+    <Content Include="bin\System.IO.MemoryMappedFiles.dll" />
+    <Content Include="bin\System.IO.Pipes.dll" />
+    <Content Include="bin\System.IO.UnmanagedMemoryStream.dll" />
+    <Content Include="bin\System.Linq.dll" />
+    <Content Include="bin\System.Linq.Expressions.dll" />
+    <Content Include="bin\System.Linq.Parallel.dll" />
+    <Content Include="bin\System.Linq.Queryable.dll" />
+    <Content Include="bin\System.Net.Http.dll" />
+    <Content Include="bin\System.Net.NameResolution.dll" />
+    <Content Include="bin\System.Net.NetworkInformation.dll" />
+    <Content Include="bin\System.Net.Ping.dll" />
+    <Content Include="bin\System.Net.Primitives.dll" />
+    <Content Include="bin\System.Net.Requests.dll" />
+    <Content Include="bin\System.Net.Security.dll" />
+    <Content Include="bin\System.Net.Sockets.dll" />
+    <Content Include="bin\System.Net.WebHeaderCollection.dll" />
+    <Content Include="bin\System.Net.WebSockets.Client.dll" />
+    <Content Include="bin\System.Net.WebSockets.dll" />
+    <Content Include="bin\System.ObjectModel.dll" />
+    <Content Include="bin\System.Reflection.dll" />
+    <Content Include="bin\System.Reflection.Extensions.dll" />
+    <Content Include="bin\System.Reflection.Primitives.dll" />
+    <Content Include="bin\System.Resources.Reader.dll" />
+    <Content Include="bin\System.Resources.ResourceManager.dll" />
+    <Content Include="bin\System.Resources.Writer.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.VisualC.dll" />
+    <Content Include="bin\System.Runtime.dll" />
+    <Content Include="bin\System.Runtime.Extensions.dll" />
+    <Content Include="bin\System.Runtime.Handles.dll" />
+    <Content Include="bin\System.Runtime.InteropServices.dll" />
+    <Content Include="bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\System.Runtime.Numerics.dll" />
+    <Content Include="bin\System.Runtime.Serialization.Formatters.dll" />
+    <Content Include="bin\System.Runtime.Serialization.Json.dll" />
+    <Content Include="bin\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="bin\System.Runtime.Serialization.Xml.dll" />
+    <Content Include="bin\System.Security.Claims.dll" />
+    <Content Include="bin\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\System.Security.Cryptography.Csp.dll" />
+    <Content Include="bin\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\System.Security.Principal.dll" />
+    <Content Include="bin\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\System.Security.SecureString.dll" />
+    <Content Include="bin\System.Text.Encoding.dll" />
+    <Content Include="bin\System.Text.Encoding.Extensions.dll" />
+    <Content Include="bin\System.Text.RegularExpressions.dll" />
+    <Content Include="bin\System.Threading.dll" />
+    <Content Include="bin\System.Threading.Overlapped.dll" />
+    <Content Include="bin\System.Threading.Tasks.dll" />
+    <Content Include="bin\System.Threading.Tasks.Parallel.dll" />
+    <Content Include="bin\System.Threading.Thread.dll" />
+    <Content Include="bin\System.Threading.ThreadPool.dll" />
+    <Content Include="bin\System.Threading.Timer.dll" />
+    <Content Include="bin\System.ValueTuple.dll" />
+    <Content Include="bin\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\System.Xml.XDocument.dll" />
+    <Content Include="bin\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\System.Xml.XmlSerializer.dll" />
+    <Content Include="bin\System.Xml.XPath.dll" />
+    <Content Include="bin\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\wnvwordtopdf.dll" />
+    <Content Include="CAPTACION\CONFIGURACION\CAP_CNF_CAPTACION.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO1.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO2.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO3.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO4.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_BENEFICIARIOS.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_GENERAL.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROPIETARIORECURSOS.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROVEEDORREQ.aspx" />
+    <Content Include="CAPTACION\EXPEDIENTES\CAP_EXP_REFERENCIASCOMER.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO1.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO2.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO3.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO4.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_GENERAL.aspx" />
+    <Content Include="CAPTACION\PRODUCTOS\CAP_PROD_RESUMEN.aspx" />
+    <Content Include="CAPTACION\VENTANILLA\CAP_VEN_DEPRET.aspx" />
+    <Content Include="CAPTACION\VENTANILLA\CAP_VEN_PERSONAS_AUTORIZADAS.aspx" />
+    <Content Include="COBRANZA\COB_BUSQUEDA.aspx" />
+    <Content Include="COBRANZA\COB_BUSQUEDA_DESP.aspx" />
+    <Content Include="COBRANZA\COB_CONDONACIONES.aspx" />
+    <Content Include="COBRANZA\COB_CONSULTA_BIT.aspx" />
+    <Content Include="COBRANZA\COB_DESP_ALTA.aspx" />
+    <Content Include="COBRANZA\COB_DESP_EXP.aspx" />
+    <Content Include="COBRANZA\COB_DESP_PERSONAF.aspx" />
+    <Content Include="COBRANZA\COB_DESP_PERSONAM.aspx" />
+    <Content Include="COBRANZA\COB_DESP_RESUMEN.aspx" />
+    <Content Include="COBRANZA\COB_DESP_RESUMEN_DESP.aspx" />
+    <Content Include="COBRANZA\COB_DOC_GENERAL.aspx" />
+    <Content Include="COBRANZA\COB_DOC_GENERAR.aspx" />
+    <Content Include="COBRANZA\COB_DOC_PLANTILLAS.aspx" />
+    <Content Include="COBRANZA\COB_INFO_GENERAL.aspx" />
+    <Content Include="COBRANZA\COB_LOG.aspx" />
+    <Content Include="COBRANZA\COB_PROM_PAGO.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS_CREAR.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_EVENTOSCORREO.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS_CREAR.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS_CREAR.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_PRUEBA_CORREO.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_ROLES.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_ROLES_CREAR.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_SISTEMA.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS.aspx" />
+    <Content Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS_CREAR.aspx" />
+    <Content Include="CORE\NOTIFICACIONES\CORE_NOT_CONFIGURACION.aspx" />
+    <Content Include="CORE\NOTIFICACIONES\CORE_NOT_NOTIFICACIONES_ADM.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_CIERRE.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_CONTABILIDAD.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_DIVISAS.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_ENTIDAD.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_FACTOR_SH.aspx" />
+    <Content Include="CORE\OPERACIONES\CORE_OPE_INDICES.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_APORTACIONES_GENERAL.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA_AGREMIADO.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO_CHEQUE.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PAGA_PENSIONES.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PAGA_RETRO_CHEQUE.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PEN_ALI.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PEN_ALI_AGREMIADO.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PEN_ALI_DIGI.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONA.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONAEXT.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONAEXT_BUSQUEDA.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONA_API.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONA_BUSQUEDA.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_PERSONA_MULTIPLE.aspx" />
+    <Content Include="CORE\PERSONA\CORE_PER_RESUMEN.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_ADMINISTRADOR.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_BITACORAS.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_CATEGORIAS.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_DENOMINACIONES.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_GENERADOR.aspx" />
+    <Content Include="CORE\REPORTES\CORE_REP_MOVIMIENTOS_PRESTAMOS.aspx" />
+    <Content Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA.aspx" />
+    <Content Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENAS_USUARIOS.aspx" />
+    <Content Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_CAMBIO.aspx" />
+    <Content Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_RECUPERAR.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_CREDITO.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_DESBLOQUEO_EXP.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS_CREACION.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_OPERACIONES.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_ADM.aspx" />
+    <Content Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_RECEPCION.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_CRED.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_DIRECTOR.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_FASE1.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO1.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_ESPECIAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_PLAN_INSTITUCIONAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO3.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO4.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO5.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO6.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO7.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO8.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO9.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_AUTORIZAEXCEDENTE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_AVALES.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CAN_PREST_AUTO.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CARGA_PREJUBILADOS.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CHEQUE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CODEUDORES.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_COMITE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP_DIGITAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_PLAN.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_TAB.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_DESCUENTOS_PROC.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_DICTAMEN.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_DIRECTOR.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_EMERGENCIA.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_MASIVO.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_RUTA.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_EXPEDIENTE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_EXP_DIGITAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_GARANTIA.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_GENERAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_HISTORIAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_HOJA_INV.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_INTERESES_PRES.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_INVERSIONES.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_INVESTIGACIONES.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_MESA_CTRL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDHIP.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDPER.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED_CHEQUE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PLAN_GENERAL.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_POLIZAS.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGAR.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARHIP.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARPER.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PPE.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PRESUPUESTOS.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PROPIETARIO.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_PROV_REC.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_REESTRUCTURA.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_REF_COM.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\CRED_EXP_REGE_LAYOUT.aspx" />
+    <Content Include="CREDITO\EXPEDIENTES\DynamicWebTWAIN.cab" />
+    <Content Include="CREDITO\EXPEDIENTES\DynamicWebTwain.lpk" />
+    <Content Include="CREDITO\EXPEDIENTES\DynamicWebTwainCtrl.dll" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO1.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO10.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO2.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO3.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO4.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO5.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO6.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO7.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO8.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO9.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_GENERAL.aspx" />
+    <Content Include="CREDITO\PRODUCTOS\CRED_PROD_RESUMEN.aspx" />
+    <Content Include="CREDITO\TESORERIA\CRED_TES_CHEQUES_AUTORIZACION.aspx" />
+    <Content Include="CREDITO\TESORERIA\CRED_TES_CONCILIADOR_CHEQUES.aspx" />
+    <Content Include="CREDITO\TESORERIA\CRED_TES_ENVIO_EFECTIVO.aspx" />
+    <Content Include="CREDITO\TESORERIA\CRED_TES_RECEPCION_EFECTIVO.aspx" />
+    <Content Include="CREDITO\TESORERIA\CRED_TES_REGISTRO_ENVIO.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION_MULTIPLE.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZADOR.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_CORTEEFECTIVO.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_DESCUENTOS.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_ORDEN_DESC.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_ADM.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_CRED.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_PROV_REC.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_REEST_PRES.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_REP_DENOMINACION.aspx" />
+    <Content Include="CREDITO\VENTANILLA\CRED_VEN_TIRAEFECTIVO.aspx" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\elegant-icons-style.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\icofont.css" />
+    <Content Include="css\style-responsive.css" />
+    <Content Include="css\style.css" />
+    <Content Include="DIGITALIZADOR\DIGI_GLOBAL.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR_ACTACCC.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR_COMITE.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR_CORTE_EFECTIVO.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR_ENTREVISTA.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_MOSTRAR_GARANTIAS.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_SCAN.aspx" />
+    <Content Include="DIGITALIZADOR\DIGI_SCAN_PEN_ALI.aspx" />
+    <Content Include="DIGITALIZADOR\DynamicWebTwainCtrl.dll" />
+    <Content Include="DynamicWebTWAIN.cab" />
+    <Content Include="DynamicWebTwainCtrl.dll" />
+    <Content Include="FINSESION.aspx" />
+    <Content Include="fonts\ElegantIcons.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\GothamExtraLight.svg" />
+    <Content Include="fonts\icofont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\arrow-up.png" />
+    <Content Include="img\avatar1_small.jpg" />
+    <Content Include="img\banner.jpg" />
+    <Content Include="img\bg-1.jpg" />
+    <Content Include="img\bg-3.jpg" />
+    <Content Include="img\bg-4.jpg" />
+    <Content Include="img\chart-texture.jpg" />
+    <Content Include="img\collapse.jpg" />
+    <Content Include="img\customSelect-arrow.gif" />
+    <Content Include="img\excel.png" />
+    <Content Include="img\excelx.png" />
+    <Content Include="img\expand.jpg" />
+    <Content Include="img\fb.gif" />
+    <Content Include="img\glass.png" />
+    <Content Include="img\icons\line-icon-c.png" />
+    <Content Include="img\icons\line-icon-hover.png" />
+    <Content Include="img\icons\line-icon.png" />
+    <Content Include="img\icons\search-line-icon.png" />
+    <Content Include="img\icons\social.png" />
+    <Content Include="img\icons\weather-hover.png" />
+    <Content Include="img\icons\weather.png" />
+    <Content Include="img\layout.png" />
+    <Content Include="img\left-arrow.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\right-arrow.png" />
+    <Content Include="img\search-icon.jpg" />
+    <Content Include="img\SemaforoROJO.png" />
+    <Content Include="img\SemaforoROJO1.png" />
+    <Content Include="img\SemaforoVERDE.png" />
+    <Content Include="img\SemaforoVERDE1.png" />
+    <Content Include="img\tw.png" />
+    <Content Include="js\additional-methods.min.js" />
+    <Content Include="js\bootstrap-switch.js" />
+    <Content Include="js\bootstrap-timepicker.js" />
+    <Content Include="js\bootstrap-timepicker.min.js" />
+    <Content Include="js\bootstrap-wysiwyg-custom.js" />
+    <Content Include="js\bootstrap-wysiwyg.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\calendar-custom.js" />
+    <Content Include="js\chartjs-custom.js" />
+    <Content Include="js\charts-flot.js" />
+    <Content Include="js\charts-other.js" />
+    <Content Include="js\charts-xcharts.js" />
+    <Content Include="js\charts.js" />
+    <Content Include="js\dynamic-table.js" />
+    <Content Include="js\easy-pie-chart.js" />
+    <Content Include="js\excanvas.min.js" />
+    <Content Include="js\form-component.js" />
+    <Content Include="js\form-validation-script.js" />
+    <Content Include="js\fullcalendar.js" />
+    <Content Include="js\fullcalendar.min.js" />
+    <Content Include="js\ga.js" />
+    <Content Include="js\gdp-data.js" />
+    <Content Include="js\gritter.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery-3.2.1.js" />
+    <Content Include="js\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="js\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="js\jquery-ui-1.10.4.min.js" />
+    <Content Include="js\jquery.autosize.min.js" />
+    <Content Include="js\jquery.customSelect.min.js" />
+    <Content Include="js\jquery.flot.pie.js" />
+    <Content Include="js\jquery.hotkeys.js" />
+    <Content Include="js\jquery.localscroll.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.placeholder.min.js" />
+    <Content Include="js\jquery.rateit.min.js" />
+    <Content Include="js\jquery.scrollTo.min.js" />
+    <Content Include="js\jquery.slimscroll.min.js" />
+    <Content Include="js\jquery.smartWizard.js" />
+    <Content Include="js\jquery.sparkline-11.js" />
+    <Content Include="js\jquery.sparkline.js" />
+    <Content Include="js\jquery.stepy.js" />
+    <Content Include="js\jquery.tagsinput.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\lte-ie7.js" />
+    <Content Include="js\morris-script.js" />
+    <Content Include="js\morris.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\sliders.js" />
+    <Content Include="js\sparkline-chart.js" />
+    <Content Include="js\sparklines.js" />
+    <Content Include="js\timepicki.js" />
+    <Content Include="js\xcharts.min.js" />
+    <Content Include="LOGIN.aspx" />
+    <Content Include="MEMBRESIA\MEM_UPD_DATOS_TRABAJADOR.aspx" />
+    <Content Include="NOTIFICACIONES.aspx" />
+    <Content Include="PENSIONES\CONFIGURACION\PEN_CNF_CALENDARIOS.aspx" />
+    <Content Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES.aspx" />
+    <Content Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES_CREACION.aspx" />
+    <Content Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS.aspx" />
+    <Content Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS_CREAR.aspx" />
+    <Content Include="PENSIONES\PROCESOS\PEN_PROC_LAYOUT.aspx" />
+    <Content Include="PENSIONES\PROCESOS\PEN_PROC_PERIODOS.aspx" />
+    <Content Include="PENSIONES\PROCESOS\PEN_PROC_SALDOS_TRABAJADOR.aspx" />
+    <Content Include="PENSIONES\PROCESOS\PEN_PROC_UPLOAD_TOTAL_TRABAJADOR.aspx" />
+    <Content Include="PLD\ALERTAS\MostrarDigitActaCCC.aspx" />
+    <Content Include="PLD\ALERTAS\PLD_ALE_CONSULTASESIONES.aspx" />
+    <Content Include="PLD\ALERTAS\PLD_ALE_HISTORIAL.aspx" />
+    <Content Include="PLD\ALERTAS\PLD_ALE_OPERACIONES.aspx" />
+    <Content Include="PLD\ALERTAS\PLD_ALE_PERFIL.aspx" />
+    <Content Include="PLD\CONFIGURACION\PLD_CNF_LISTAS.aspx" />
+    <Content Include="PLD\CONFIGURACION\PLD_CNF_LISTAS_CARGA.aspx" />
+    <Content Include="PLD\CONFIGURACION\PLD_CNF_PLD.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_ALERTASCCC.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_DETALLE_ENTREVISTA.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_ENTREVISTACLIENTE.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_INUSUAL.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_OC_ADMEXP.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_OPERACIONES_24HORAS.aspx" />
+    <Content Include="PLD\OPERACIONES\PLD_OPE_PROVEEDORRECURSO.aspx" />
+    <Content Include="PROHIBIDO.aspx" />
+    <Content Include="REPORTES\CREDITO\REP_CRED_PROX_PAGOS.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="bin\SNTE5.dll.config" />
+    <Content Include="DIGITALIZADOR\DynamicWebTwain.lpk" />
+    <Content Include="DocPlantillas\EstadoCuenta\estadocuenta.pdf" />
+    <Content Include="DocPlantillas\EstadoCuenta\estadocuentacierre.pdf" />
+    <Content Include="DocPlantillas\EstadoCuenta\estadocuentaprestamos.pdf" />
+    <Content Include="DocPlantillas\EstadoCuenta\Prestamos.pdf" />
+    <Content Include="DocPlantillas\Cheque\cheque.pdf" />
+    <Content Include="Excel\base.xlsx" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="src\combodate.js" />
+    <Content Include="UNIVERSAL\UNI_BUSQUEDA_CP.aspx" />
+    <Content Include="UNIVERSAL\UNI_BUSQUEDA_PERSONA.aspx" />
+    <Content Include="UNIVERSAL\UNI_RED_SOCIAL.aspx" />
+    <Content Include="UNIVERSAL\UNI_REFERENCIAS.aspx" />
+    <Content Include="VALIDACION\VAL_VALIDACION_ADM.aspx" />
+    <Content Include="VALIDACION\VAL_VALIDACION_EXP.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Word\Contrato.docx" />
+    <Content Include="Word\PRESTAMO PERSONAL PARA LIQUIDEZ782018175357.docx" />
+    <Content Include="Word\SolicitudAperturaPF.docx" />
+    <Content Include="Word\SolicitudAperturaPM.docx" />
+    <Content Include="Word\COBRANZA\AVI.docx" />
+    <Content Include="Word\COBRANZA\AVI_AVAL.docx" />
+    <Content Include="Word\COBRANZA\AVI_CLI.docx" />
+    <Content Include="Word\COBRANZA\BITACORA_COBRANZA.xlsx" />
+    <Content Include="Word\COBRANZA\CIT.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CAPTACION\CONFIGURACION\CAP_CNF_CAPTACION.aspx.designer.vb">
+      <DependentUpon>CAP_CNF_CAPTACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\CONFIGURACION\CAP_CNF_CAPTACION.aspx.vb">
+      <DependentUpon>CAP_CNF_CAPTACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO1.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_APARTADO1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO1.aspx.vb">
+      <DependentUpon>CAP_EXP_APARTADO1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO2.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_APARTADO2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO2.aspx.vb">
+      <DependentUpon>CAP_EXP_APARTADO2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO3.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_APARTADO3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO3.aspx.vb">
+      <DependentUpon>CAP_EXP_APARTADO3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO4.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_APARTADO4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_APARTADO4.aspx.vb">
+      <DependentUpon>CAP_EXP_APARTADO4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_BENEFICIARIOS.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_BENEFICIARIOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_BENEFICIARIOS.aspx.vb">
+      <DependentUpon>CAP_EXP_BENEFICIARIOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_GENERAL.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_GENERAL.aspx.vb">
+      <DependentUpon>CAP_EXP_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROPIETARIORECURSOS.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_PROPIETARIORECURSOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROPIETARIORECURSOS.aspx.vb">
+      <DependentUpon>CAP_EXP_PROPIETARIORECURSOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROVEEDORREQ.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_PROVEEDORREQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_PROVEEDORREQ.aspx.vb">
+      <DependentUpon>CAP_EXP_PROVEEDORREQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_REFERENCIASCOMER.aspx.designer.vb">
+      <DependentUpon>CAP_EXP_REFERENCIASCOMER.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\EXPEDIENTES\CAP_EXP_REFERENCIASCOMER.aspx.vb">
+      <DependentUpon>CAP_EXP_REFERENCIASCOMER.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO1.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_APARTADO1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO1.aspx.vb">
+      <DependentUpon>CAP_PROD_APARTADO1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO2.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_APARTADO2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO2.aspx.vb">
+      <DependentUpon>CAP_PROD_APARTADO2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO3.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_APARTADO3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO3.aspx.vb">
+      <DependentUpon>CAP_PROD_APARTADO3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO4.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_APARTADO4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_APARTADO4.aspx.vb">
+      <DependentUpon>CAP_PROD_APARTADO4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_GENERAL.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_GENERAL.aspx.vb">
+      <DependentUpon>CAP_PROD_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_RESUMEN.aspx.designer.vb">
+      <DependentUpon>CAP_PROD_RESUMEN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\PRODUCTOS\CAP_PROD_RESUMEN.aspx.vb">
+      <DependentUpon>CAP_PROD_RESUMEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\VENTANILLA\CAP_VEN_DEPRET.aspx.designer.vb">
+      <DependentUpon>CAP_VEN_DEPRET.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\VENTANILLA\CAP_VEN_DEPRET.aspx.vb">
+      <DependentUpon>CAP_VEN_DEPRET.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CAPTACION\VENTANILLA\CAP_VEN_PERSONAS_AUTORIZADAS.aspx.designer.vb">
+      <DependentUpon>CAP_VEN_PERSONAS_AUTORIZADAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CAPTACION\VENTANILLA\CAP_VEN_PERSONAS_AUTORIZADAS.aspx.vb">
+      <DependentUpon>CAP_VEN_PERSONAS_AUTORIZADAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clases\Act_InfoTrab.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clases\Categ_Ctrl.vb" />
+    <Compile Include="Clases\ControlsWeb.vb" />
+    <Compile Include="Clases\Correo.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clases\CrearCuentaAppModel.vb" />
+    <Compile Include="Clases\DataAccess.vb" />
+    <Compile Include="Clases\PDFCreator.vb" />
+    <Compile Include="Clases\Reportes_Param_Ctrl.vb" />
+    <Compile Include="Clases\RespuestaContraseña.vb" />
+    <Compile Include="Clases\RespuestaCrearCta.vb" />
+    <Compile Include="Clases\TheGlobalClass.vb" />
+    <Compile Include="COBRANZA\COB_BUSQUEDA.aspx.designer.vb">
+      <DependentUpon>COB_BUSQUEDA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_BUSQUEDA.aspx.vb">
+      <DependentUpon>COB_BUSQUEDA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_BUSQUEDA_DESP.aspx.designer.vb">
+      <DependentUpon>COB_BUSQUEDA_DESP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_BUSQUEDA_DESP.aspx.vb">
+      <DependentUpon>COB_BUSQUEDA_DESP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_CONDONACIONES.aspx.designer.vb">
+      <DependentUpon>COB_CONDONACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_CONDONACIONES.aspx.vb">
+      <DependentUpon>COB_CONDONACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_CONSULTA_BIT.aspx.designer.vb">
+      <DependentUpon>COB_CONSULTA_BIT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_CONSULTA_BIT.aspx.vb">
+      <DependentUpon>COB_CONSULTA_BIT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_ALTA.aspx.designer.vb">
+      <DependentUpon>COB_DESP_ALTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_ALTA.aspx.vb">
+      <DependentUpon>COB_DESP_ALTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_EXP.aspx.designer.vb">
+      <DependentUpon>COB_DESP_EXP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_EXP.aspx.vb">
+      <DependentUpon>COB_DESP_EXP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_PERSONAF.aspx.designer.vb">
+      <DependentUpon>COB_DESP_PERSONAF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_PERSONAF.aspx.vb">
+      <DependentUpon>COB_DESP_PERSONAF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_PERSONAM.aspx.designer.vb">
+      <DependentUpon>COB_DESP_PERSONAM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_PERSONAM.aspx.vb">
+      <DependentUpon>COB_DESP_PERSONAM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_RESUMEN.aspx.designer.vb">
+      <DependentUpon>COB_DESP_RESUMEN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_RESUMEN.aspx.vb">
+      <DependentUpon>COB_DESP_RESUMEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_RESUMEN_DESP.aspx.designer.vb">
+      <DependentUpon>COB_DESP_RESUMEN_DESP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DESP_RESUMEN_DESP.aspx.vb">
+      <DependentUpon>COB_DESP_RESUMEN_DESP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_GENERAL.aspx.designer.vb">
+      <DependentUpon>COB_DOC_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_GENERAL.aspx.vb">
+      <DependentUpon>COB_DOC_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_GENERAR.aspx.designer.vb">
+      <DependentUpon>COB_DOC_GENERAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_GENERAR.aspx.vb">
+      <DependentUpon>COB_DOC_GENERAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_PLANTILLAS.aspx.designer.vb">
+      <DependentUpon>COB_DOC_PLANTILLAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_DOC_PLANTILLAS.aspx.vb">
+      <DependentUpon>COB_DOC_PLANTILLAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_INFO_GENERAL.aspx.designer.vb">
+      <DependentUpon>COB_INFO_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_INFO_GENERAL.aspx.vb">
+      <DependentUpon>COB_INFO_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_LOG.aspx.designer.vb">
+      <DependentUpon>COB_LOG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_LOG.aspx.vb">
+      <DependentUpon>COB_LOG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COBRANZA\COB_PROM_PAGO.aspx.designer.vb">
+      <DependentUpon>COB_PROM_PAGO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COBRANZA\COB_PROM_PAGO.aspx.vb">
+      <DependentUpon>COB_PROM_PAGO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_EQUIPOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS.aspx.vb">
+      <DependentUpon>CORE_CNF_EQUIPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS_CREAR.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_EQUIPOS_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EQUIPOS_CREAR.aspx.vb">
+      <DependentUpon>CORE_CNF_EQUIPOS_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EVENTOSCORREO.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_EVENTOSCORREO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_EVENTOSCORREO.aspx.vb">
+      <DependentUpon>CORE_CNF_EVENTOSCORREO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_OFICINAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS.aspx.vb">
+      <DependentUpon>CORE_CNF_OFICINAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS_CREAR.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_OFICINAS_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_OFICINAS_CREAR.aspx.vb">
+      <DependentUpon>CORE_CNF_OFICINAS_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_POLITICAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS.aspx.vb">
+      <DependentUpon>CORE_CNF_POLITICAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS_CREAR.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_POLITICAS_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_POLITICAS_CREAR.aspx.vb">
+      <DependentUpon>CORE_CNF_POLITICAS_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_PRUEBA_CORREO.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_PRUEBA_CORREO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_PRUEBA_CORREO.aspx.vb">
+      <DependentUpon>CORE_CNF_PRUEBA_CORREO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_ROLES.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_ROLES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_ROLES.aspx.vb">
+      <DependentUpon>CORE_CNF_ROLES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_ROLES_CREAR.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_ROLES_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_ROLES_CREAR.aspx.vb">
+      <DependentUpon>CORE_CNF_ROLES_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_SISTEMA.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_SISTEMA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_SISTEMA.aspx.vb">
+      <DependentUpon>CORE_CNF_SISTEMA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_USUARIOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS.aspx.vb">
+      <DependentUpon>CORE_CNF_USUARIOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS_CREAR.aspx.designer.vb">
+      <DependentUpon>CORE_CNF_USUARIOS_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\CONFIGURACION\CORE_CNF_USUARIOS_CREAR.aspx.vb">
+      <DependentUpon>CORE_CNF_USUARIOS_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\NOTIFICACIONES\CORE_NOT_CONFIGURACION.aspx.designer.vb">
+      <DependentUpon>CORE_NOT_CONFIGURACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\NOTIFICACIONES\CORE_NOT_CONFIGURACION.aspx.vb">
+      <DependentUpon>CORE_NOT_CONFIGURACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\NOTIFICACIONES\CORE_NOT_NOTIFICACIONES_ADM.aspx.designer.vb">
+      <DependentUpon>CORE_NOT_NOTIFICACIONES_ADM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\NOTIFICACIONES\CORE_NOT_NOTIFICACIONES_ADM.aspx.vb">
+      <DependentUpon>CORE_NOT_NOTIFICACIONES_ADM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_CIERRE.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_CIERRE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_CIERRE.aspx.vb">
+      <DependentUpon>CORE_OPE_CIERRE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_CONTABILIDAD.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_CONTABILIDAD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_CONTABILIDAD.aspx.vb">
+      <DependentUpon>CORE_OPE_CONTABILIDAD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_DIVISAS.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_DIVISAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_DIVISAS.aspx.vb">
+      <DependentUpon>CORE_OPE_DIVISAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_ENTIDAD.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_ENTIDAD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_ENTIDAD.aspx.vb">
+      <DependentUpon>CORE_OPE_ENTIDAD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_FACTOR_SH.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_FACTOR_SH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_FACTOR_SH.aspx.vb">
+      <DependentUpon>CORE_OPE_FACTOR_SH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_INDICES.aspx.designer.vb">
+      <DependentUpon>CORE_OPE_INDICES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\OPERACIONES\CORE_OPE_INDICES.aspx.vb">
+      <DependentUpon>CORE_OPE_INDICES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_APORTACIONES_GENERAL.aspx.designer.vb">
+      <DependentUpon>CORE_PER_APORTACIONES_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_APORTACIONES_GENERAL.aspx.vb">
+      <DependentUpon>CORE_PER_APORTACIONES_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA.aspx.designer.vb">
+      <DependentUpon>CORE_PER_LISTA_NEGRA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA.aspx.vb">
+      <DependentUpon>CORE_PER_LISTA_NEGRA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA_AGREMIADO.aspx.designer.vb">
+      <DependentUpon>CORE_PER_LISTA_NEGRA_AGREMIADO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_LISTA_NEGRA_AGREMIADO.aspx.vb">
+      <DependentUpon>CORE_PER_LISTA_NEGRA_AGREMIADO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PAGA_AHORRO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO.aspx.vb">
+      <DependentUpon>CORE_PER_PAGA_AHORRO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO_CHEQUE.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PAGA_AHORRO_CHEQUE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_AHORRO_CHEQUE.aspx.vb">
+      <DependentUpon>CORE_PER_PAGA_AHORRO_CHEQUE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_PENSIONES.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PAGA_PENSIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_PENSIONES.aspx.vb">
+      <DependentUpon>CORE_PER_PAGA_PENSIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_RETRO_CHEQUE.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PAGA_RETRO_CHEQUE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PAGA_RETRO_CHEQUE.aspx.vb">
+      <DependentUpon>CORE_PER_PAGA_RETRO_CHEQUE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PEN_ALI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI.aspx.vb">
+      <DependentUpon>CORE_PER_PEN_ALI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI_AGREMIADO.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PEN_ALI_AGREMIADO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI_AGREMIADO.aspx.vb">
+      <DependentUpon>CORE_PER_PEN_ALI_AGREMIADO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI_DIGI.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PEN_ALI_DIGI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PEN_ALI_DIGI.aspx.vb">
+      <DependentUpon>CORE_PER_PEN_ALI_DIGI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONAEXT.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONAEXT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONAEXT.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONAEXT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONAEXT_BUSQUEDA.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONAEXT_BUSQUEDA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONAEXT_BUSQUEDA.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONAEXT_BUSQUEDA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_API.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONA_API.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_API.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONA_API.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_BUSQUEDA.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONA_BUSQUEDA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_BUSQUEDA.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONA_BUSQUEDA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_MULTIPLE.aspx.designer.vb">
+      <DependentUpon>CORE_PER_PERSONA_MULTIPLE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_PERSONA_MULTIPLE.aspx.vb">
+      <DependentUpon>CORE_PER_PERSONA_MULTIPLE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_RESUMEN.aspx.designer.vb">
+      <DependentUpon>CORE_PER_RESUMEN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\PERSONA\CORE_PER_RESUMEN.aspx.vb">
+      <DependentUpon>CORE_PER_RESUMEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_ADMINISTRADOR.aspx.designer.vb">
+      <DependentUpon>CORE_REP_ADMINISTRADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_ADMINISTRADOR.aspx.vb">
+      <DependentUpon>CORE_REP_ADMINISTRADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_BITACORAS.aspx.designer.vb">
+      <DependentUpon>CORE_REP_BITACORAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_BITACORAS.aspx.vb">
+      <DependentUpon>CORE_REP_BITACORAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_CATEGORIAS.aspx.designer.vb">
+      <DependentUpon>CORE_REP_CATEGORIAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_CATEGORIAS.aspx.vb">
+      <DependentUpon>CORE_REP_CATEGORIAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_DENOMINACIONES.aspx.designer.vb">
+      <DependentUpon>CORE_REP_DENOMINACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_DENOMINACIONES.aspx.vb">
+      <DependentUpon>CORE_REP_DENOMINACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_GENERADOR.aspx.designer.vb">
+      <DependentUpon>CORE_REP_GENERADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_GENERADOR.aspx.vb">
+      <DependentUpon>CORE_REP_GENERADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_MOVIMIENTOS_PRESTAMOS.aspx.designer.vb">
+      <DependentUpon>CORE_REP_MOVIMIENTOS_PRESTAMOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\REPORTES\CORE_REP_MOVIMIENTOS_PRESTAMOS.aspx.vb">
+      <DependentUpon>CORE_REP_MOVIMIENTOS_PRESTAMOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA.aspx.designer.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA.aspx.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENAS_USUARIOS.aspx.designer.vb">
+      <DependentUpon>CORE_SEG_CONTRASENAS_USUARIOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENAS_USUARIOS.aspx.vb">
+      <DependentUpon>CORE_SEG_CONTRASENAS_USUARIOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_CAMBIO.aspx.designer.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA_CAMBIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_CAMBIO.aspx.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA_CAMBIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_RECUPERAR.aspx.designer.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA_RECUPERAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CORE\SEGURIDAD\CORE_SEG_CONTRASENA_RECUPERAR.aspx.vb">
+      <DependentUpon>CORE_SEG_CONTRASENA_RECUPERAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_CREDITO.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_CREDITO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_CREDITO.aspx.vb">
+      <DependentUpon>CRED_CNF_CREDITO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DESBLOQUEO_EXP.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_DESBLOQUEO_EXP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DESBLOQUEO_EXP.aspx.vb">
+      <DependentUpon>CRED_CNF_DESBLOQUEO_EXP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_DOCUMENTOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS.aspx.vb">
+      <DependentUpon>CRED_CNF_DOCUMENTOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS_CREACION.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_DOCUMENTOS_CREACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_DOCUMENTOS_CREACION.aspx.vb">
+      <DependentUpon>CRED_CNF_DOCUMENTOS_CREACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_OPERACIONES.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_OPERACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_OPERACIONES.aspx.vb">
+      <DependentUpon>CRED_CNF_OPERACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_PAGARES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES.aspx.vb">
+      <DependentUpon>CRED_CNF_PAGARES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_ADM.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_PAGARES_ADM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_ADM.aspx.vb">
+      <DependentUpon>CRED_CNF_PAGARES_ADM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_RECEPCION.aspx.designer.vb">
+      <DependentUpon>CRED_CNF_PAGARES_RECEPCION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\CONFIGURACION\CRED_CNF_PAGARES_RECEPCION.aspx.vb">
+      <DependentUpon>CRED_CNF_PAGARES_RECEPCION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_CRED.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ANA_CRED.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_CRED.aspx.vb">
+      <DependentUpon>CRED_EXP_ANA_CRED.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_DIRECTOR.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ANA_DIRECTOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_DIRECTOR.aspx.vb">
+      <DependentUpon>CRED_EXP_ANA_DIRECTOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_FASE1.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ANA_FASE1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ANA_FASE1.aspx.vb">
+      <DependentUpon>CRED_EXP_ANA_FASE1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO1.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO1.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_ESPECIAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO2_ESPECIAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_ESPECIAL.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO2_ESPECIAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_PLAN_INSTITUCIONAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO2_PLAN_INSTITUCIONAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO2_PLAN_INSTITUCIONAL.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO2_PLAN_INSTITUCIONAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO3.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO3.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO4.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO4.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO5.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO5.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO6.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO6.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO7.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO7.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO8.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO8.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO9.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_APARTADO9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_APARTADO9.aspx.vb">
+      <DependentUpon>CRED_EXP_APARTADO9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_AUTORIZAEXCEDENTE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_AUTORIZAEXCEDENTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_AUTORIZAEXCEDENTE.aspx.vb">
+      <DependentUpon>CRED_EXP_AUTORIZAEXCEDENTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_AVALES.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_AVALES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_AVALES.aspx.vb">
+      <DependentUpon>CRED_EXP_AVALES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CAN_PREST_AUTO.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CAN_PREST_AUTO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CAN_PREST_AUTO.aspx.vb">
+      <DependentUpon>CRED_EXP_CAN_PREST_AUTO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CARGA_PREJUBILADOS.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CARGA_PREJUBILADOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CARGA_PREJUBILADOS.aspx.vb">
+      <DependentUpon>CRED_EXP_CARGA_PREJUBILADOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CHEQUE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CHEQUE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CHEQUE.aspx.vb">
+      <DependentUpon>CRED_EXP_CHEQUE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CODEUDORES.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CODEUDORES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CODEUDORES.aspx.vb">
+      <DependentUpon>CRED_EXP_CODEUDORES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COMITE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_COMITE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COMITE.aspx.vb">
+      <DependentUpon>CRED_EXP_COMITE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CONSULTAEXP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP.aspx.vb">
+      <DependentUpon>CRED_EXP_CONSULTAEXP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP_DIGITAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_CONSULTAEXP_DIGITAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_CONSULTAEXP_DIGITAL.aspx.vb">
+      <DependentUpon>CRED_EXP_CONSULTAEXP_DIGITAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR.aspx.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_PLAN.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR_PLAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_PLAN.aspx.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR_PLAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_TAB.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR_TAB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_COTIZADOR_TAB.aspx.vb">
+      <DependentUpon>CRED_EXP_COTIZADOR_TAB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DESCUENTOS_PROC.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_DESCUENTOS_PROC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DESCUENTOS_PROC.aspx.vb">
+      <DependentUpon>CRED_EXP_DESCUENTOS_PROC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DICTAMEN.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_DICTAMEN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DICTAMEN.aspx.vb">
+      <DependentUpon>CRED_EXP_DICTAMEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DIRECTOR.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_DIRECTOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_DIRECTOR.aspx.vb">
+      <DependentUpon>CRED_EXP_DIRECTOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EMERGENCIA.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_EMERGENCIA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EMERGENCIA.aspx.vb">
+      <DependentUpon>CRED_EXP_EMERGENCIA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA.aspx.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_MASIVO.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA_MASIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_MASIVO.aspx.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA_MASIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_RUTA.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA_RUTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_ESTADO_CUENTA_RUTA.aspx.vb">
+      <DependentUpon>CRED_EXP_ESTADO_CUENTA_RUTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EXPEDIENTE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_EXPEDIENTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EXPEDIENTE.aspx.vb">
+      <DependentUpon>CRED_EXP_EXPEDIENTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EXP_DIGITAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_EXP_DIGITAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_EXP_DIGITAL.aspx.vb">
+      <DependentUpon>CRED_EXP_EXP_DIGITAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_GARANTIA.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_GARANTIA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_GARANTIA.aspx.vb">
+      <DependentUpon>CRED_EXP_GARANTIA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_GENERAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_GENERAL.aspx.vb">
+      <DependentUpon>CRED_EXP_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_HISTORIAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_HISTORIAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_HISTORIAL.aspx.vb">
+      <DependentUpon>CRED_EXP_HISTORIAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_HOJA_INV.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_HOJA_INV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_HOJA_INV.aspx.vb">
+      <DependentUpon>CRED_EXP_HOJA_INV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INTERESES_PRES.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_INTERESES_PRES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INTERESES_PRES.aspx.vb">
+      <DependentUpon>CRED_EXP_INTERESES_PRES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INVERSIONES.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_INVERSIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INVERSIONES.aspx.vb">
+      <DependentUpon>CRED_EXP_INVERSIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INVESTIGACIONES.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_INVESTIGACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_INVESTIGACIONES.aspx.vb">
+      <DependentUpon>CRED_EXP_INVESTIGACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_MESA_CTRL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_MESA_CTRL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_MESA_CTRL.aspx.vb">
+      <DependentUpon>CRED_EXP_MESA_CTRL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PAGACRED.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED.aspx.vb">
+      <DependentUpon>CRED_EXP_PAGACRED.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDHIP.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PAGACREDHIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDHIP.aspx.vb">
+      <DependentUpon>CRED_EXP_PAGACREDHIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDPER.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PAGACREDPER.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACREDPER.aspx.vb">
+      <DependentUpon>CRED_EXP_PAGACREDPER.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED_CHEQUE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PAGACRED_CHEQUE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PAGACRED_CHEQUE.aspx.vb">
+      <DependentUpon>CRED_EXP_PAGACRED_CHEQUE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PLAN_GENERAL.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PLAN_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PLAN_GENERAL.aspx.vb">
+      <DependentUpon>CRED_EXP_PLAN_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_POLIZAS.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_POLIZAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_POLIZAS.aspx.vb">
+      <DependentUpon>CRED_EXP_POLIZAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGAR.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PORPAGAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGAR.aspx.vb">
+      <DependentUpon>CRED_EXP_PORPAGAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARHIP.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PORPAGARHIP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARHIP.aspx.vb">
+      <DependentUpon>CRED_EXP_PORPAGARHIP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARPER.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PORPAGARPER.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PORPAGARPER.aspx.vb">
+      <DependentUpon>CRED_EXP_PORPAGARPER.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PPE.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PPE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PPE.aspx.vb">
+      <DependentUpon>CRED_EXP_PPE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PRESUPUESTOS.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PRESUPUESTOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PRESUPUESTOS.aspx.vb">
+      <DependentUpon>CRED_EXP_PRESUPUESTOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PROPIETARIO.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PROPIETARIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PROPIETARIO.aspx.vb">
+      <DependentUpon>CRED_EXP_PROPIETARIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PROV_REC.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_PROV_REC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_PROV_REC.aspx.vb">
+      <DependentUpon>CRED_EXP_PROV_REC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REESTRUCTURA.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_REESTRUCTURA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REESTRUCTURA.aspx.vb">
+      <DependentUpon>CRED_EXP_REESTRUCTURA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REF_COM.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_REF_COM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REF_COM.aspx.vb">
+      <DependentUpon>CRED_EXP_REF_COM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REGE_LAYOUT.aspx.designer.vb">
+      <DependentUpon>CRED_EXP_REGE_LAYOUT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\EXPEDIENTES\CRED_EXP_REGE_LAYOUT.aspx.vb">
+      <DependentUpon>CRED_EXP_REGE_LAYOUT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO1.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO1.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO10.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO10.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO2.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO2.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO3.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO3.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO4.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO4.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO5.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO5.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO6.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO6.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO7.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO7.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO8.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO8.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO9.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_APARTADO9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_APARTADO9.aspx.vb">
+      <DependentUpon>CRED_PROD_APARTADO9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_GENERAL.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_GENERAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_GENERAL.aspx.vb">
+      <DependentUpon>CRED_PROD_GENERAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_RESUMEN.aspx.designer.vb">
+      <DependentUpon>CRED_PROD_RESUMEN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\PRODUCTOS\CRED_PROD_RESUMEN.aspx.vb">
+      <DependentUpon>CRED_PROD_RESUMEN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_CHEQUES_AUTORIZACION.aspx.designer.vb">
+      <DependentUpon>CRED_TES_CHEQUES_AUTORIZACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_CHEQUES_AUTORIZACION.aspx.vb">
+      <DependentUpon>CRED_TES_CHEQUES_AUTORIZACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_CONCILIADOR_CHEQUES.aspx.designer.vb">
+      <DependentUpon>CRED_TES_CONCILIADOR_CHEQUES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_CONCILIADOR_CHEQUES.aspx.vb">
+      <DependentUpon>CRED_TES_CONCILIADOR_CHEQUES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_ENVIO_EFECTIVO.aspx.designer.vb">
+      <DependentUpon>CRED_TES_ENVIO_EFECTIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_ENVIO_EFECTIVO.aspx.vb">
+      <DependentUpon>CRED_TES_ENVIO_EFECTIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_RECEPCION_EFECTIVO.aspx.designer.vb">
+      <DependentUpon>CRED_TES_RECEPCION_EFECTIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_RECEPCION_EFECTIVO.aspx.vb">
+      <DependentUpon>CRED_TES_RECEPCION_EFECTIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_REGISTRO_ENVIO.aspx.designer.vb">
+      <DependentUpon>CRED_TES_REGISTRO_ENVIO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\TESORERIA\CRED_TES_REGISTRO_ENVIO.aspx.vb">
+      <DependentUpon>CRED_TES_REGISTRO_ENVIO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_AMORTIZACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION.aspx.vb">
+      <DependentUpon>CRED_VEN_AMORTIZACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION_MULTIPLE.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_AMORTIZACION_MULTIPLE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZACION_MULTIPLE.aspx.vb">
+      <DependentUpon>CRED_VEN_AMORTIZACION_MULTIPLE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZADOR.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_AMORTIZADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_AMORTIZADOR.aspx.vb">
+      <DependentUpon>CRED_VEN_AMORTIZADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_CORTEEFECTIVO.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_CORTEEFECTIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_CORTEEFECTIVO.aspx.vb">
+      <DependentUpon>CRED_VEN_CORTEEFECTIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_DESCUENTOS.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_DESCUENTOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_DESCUENTOS.aspx.vb">
+      <DependentUpon>CRED_VEN_DESCUENTOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_ORDEN_DESC.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_ORDEN_DESC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_ORDEN_DESC.aspx.vb">
+      <DependentUpon>CRED_VEN_ORDEN_DESC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_ADM.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_PAGO_ADM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_ADM.aspx.vb">
+      <DependentUpon>CRED_VEN_PAGO_ADM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_CRED.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_PAGO_CRED.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PAGO_CRED.aspx.vb">
+      <DependentUpon>CRED_VEN_PAGO_CRED.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PROV_REC.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_PROV_REC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_PROV_REC.aspx.vb">
+      <DependentUpon>CRED_VEN_PROV_REC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_REEST_PRES.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_REEST_PRES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_REEST_PRES.aspx.vb">
+      <DependentUpon>CRED_VEN_REEST_PRES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_REP_DENOMINACION.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_REP_DENOMINACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_REP_DENOMINACION.aspx.vb">
+      <DependentUpon>CRED_VEN_REP_DENOMINACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_TIRAEFECTIVO.aspx.designer.vb">
+      <DependentUpon>CRED_VEN_TIRAEFECTIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITO\VENTANILLA\CRED_VEN_TIRAEFECTIVO.aspx.vb">
+      <DependentUpon>CRED_VEN_TIRAEFECTIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_GLOBAL.aspx.designer.vb">
+      <DependentUpon>DIGI_GLOBAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_GLOBAL.aspx.vb">
+      <DependentUpon>DIGI_GLOBAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_ACTACCC.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR_ACTACCC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_ACTACCC.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR_ACTACCC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_COMITE.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR_COMITE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_COMITE.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR_COMITE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_CORTE_EFECTIVO.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR_CORTE_EFECTIVO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_CORTE_EFECTIVO.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR_CORTE_EFECTIVO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_ENTREVISTA.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR_ENTREVISTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_ENTREVISTA.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR_ENTREVISTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_GARANTIAS.aspx.designer.vb">
+      <DependentUpon>DIGI_MOSTRAR_GARANTIAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_MOSTRAR_GARANTIAS.aspx.vb">
+      <DependentUpon>DIGI_MOSTRAR_GARANTIAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_SCAN.aspx.designer.vb">
+      <DependentUpon>DIGI_SCAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_SCAN.aspx.vb">
+      <DependentUpon>DIGI_SCAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_SCAN_PEN_ALI.aspx.designer.vb">
+      <DependentUpon>DIGI_SCAN_PEN_ALI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DIGITALIZADOR\DIGI_SCAN_PEN_ALI.aspx.vb">
+      <DependentUpon>DIGI_SCAN_PEN_ALI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FINSESION.aspx.designer.vb">
+      <DependentUpon>FINSESION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FINSESION.aspx.vb">
+      <DependentUpon>FINSESION.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="LOGIN.aspx.designer.vb">
+      <DependentUpon>LOGIN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN.aspx.vb">
+      <DependentUpon>LOGIN.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="MasterMascore.Master.designer.vb">
+      <DependentUpon>MasterMascore.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMascore.Master.vb">
+      <DependentUpon>MasterMascore.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MEMBRESIA\MEM_UPD_DATOS_TRABAJADOR.aspx.designer.vb">
+      <DependentUpon>MEM_UPD_DATOS_TRABAJADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MEMBRESIA\MEM_UPD_DATOS_TRABAJADOR.aspx.vb">
+      <DependentUpon>MEM_UPD_DATOS_TRABAJADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NOTIFICACIONES.aspx.designer.vb">
+      <DependentUpon>NOTIFICACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NOTIFICACIONES.aspx.vb">
+      <DependentUpon>NOTIFICACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_CALENDARIOS.aspx.designer.vb">
+      <DependentUpon>PEN_CNF_CALENDARIOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_CALENDARIOS.aspx.vb">
+      <DependentUpon>PEN_CNF_CALENDARIOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES.aspx.designer.vb">
+      <DependentUpon>PEN_CNF_INSTITUCIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES.aspx.vb">
+      <DependentUpon>PEN_CNF_INSTITUCIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES_CREACION.aspx.designer.vb">
+      <DependentUpon>PEN_CNF_INSTITUCIONES_CREACION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_INSTITUCIONES_CREACION.aspx.vb">
+      <DependentUpon>PEN_CNF_INSTITUCIONES_CREACION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS.aspx.designer.vb">
+      <DependentUpon>PEN_CNF_OFICINAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS.aspx.vb">
+      <DependentUpon>PEN_CNF_OFICINAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS_CREAR.aspx.designer.vb">
+      <DependentUpon>PEN_CNF_OFICINAS_CREAR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\CONFIGURACION\PEN_CNF_OFICINAS_CREAR.aspx.vb">
+      <DependentUpon>PEN_CNF_OFICINAS_CREAR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_LAYOUT.aspx.designer.vb">
+      <DependentUpon>PEN_PROC_LAYOUT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_LAYOUT.aspx.vb">
+      <DependentUpon>PEN_PROC_LAYOUT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_PERIODOS.aspx.designer.vb">
+      <DependentUpon>PEN_PROC_PERIODOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_PERIODOS.aspx.vb">
+      <DependentUpon>PEN_PROC_PERIODOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_SALDOS_TRABAJADOR.aspx.designer.vb">
+      <DependentUpon>PEN_PROC_SALDOS_TRABAJADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_SALDOS_TRABAJADOR.aspx.vb">
+      <DependentUpon>PEN_PROC_SALDOS_TRABAJADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_UPLOAD_TOTAL_TRABAJADOR.aspx.designer.vb">
+      <DependentUpon>PEN_PROC_UPLOAD_TOTAL_TRABAJADOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PENSIONES\PROCESOS\PEN_PROC_UPLOAD_TOTAL_TRABAJADOR.aspx.vb">
+      <DependentUpon>PEN_PROC_UPLOAD_TOTAL_TRABAJADOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\MostrarDigitActaCCC.aspx.designer.vb">
+      <DependentUpon>MostrarDigitActaCCC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\MostrarDigitActaCCC.aspx.vb">
+      <DependentUpon>MostrarDigitActaCCC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_CONSULTASESIONES.aspx.designer.vb">
+      <DependentUpon>PLD_ALE_CONSULTASESIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_CONSULTASESIONES.aspx.vb">
+      <DependentUpon>PLD_ALE_CONSULTASESIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_HISTORIAL.aspx.designer.vb">
+      <DependentUpon>PLD_ALE_HISTORIAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_HISTORIAL.aspx.vb">
+      <DependentUpon>PLD_ALE_HISTORIAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_OPERACIONES.aspx.designer.vb">
+      <DependentUpon>PLD_ALE_OPERACIONES.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_OPERACIONES.aspx.vb">
+      <DependentUpon>PLD_ALE_OPERACIONES.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_PERFIL.aspx.designer.vb">
+      <DependentUpon>PLD_ALE_PERFIL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\ALERTAS\PLD_ALE_PERFIL.aspx.vb">
+      <DependentUpon>PLD_ALE_PERFIL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_LISTAS.aspx.designer.vb">
+      <DependentUpon>PLD_CNF_LISTAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_LISTAS.aspx.vb">
+      <DependentUpon>PLD_CNF_LISTAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_LISTAS_CARGA.aspx.designer.vb">
+      <DependentUpon>PLD_CNF_LISTAS_CARGA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_LISTAS_CARGA.aspx.vb">
+      <DependentUpon>PLD_CNF_LISTAS_CARGA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_PLD.aspx.designer.vb">
+      <DependentUpon>PLD_CNF_PLD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\CONFIGURACION\PLD_CNF_PLD.aspx.vb">
+      <DependentUpon>PLD_CNF_PLD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_ALERTASCCC.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_ALERTASCCC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_ALERTASCCC.aspx.vb">
+      <DependentUpon>PLD_OPE_ALERTASCCC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_DETALLE_ENTREVISTA.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_DETALLE_ENTREVISTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_DETALLE_ENTREVISTA.aspx.vb">
+      <DependentUpon>PLD_OPE_DETALLE_ENTREVISTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_ENTREVISTACLIENTE.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_ENTREVISTACLIENTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_ENTREVISTACLIENTE.aspx.vb">
+      <DependentUpon>PLD_OPE_ENTREVISTACLIENTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_INUSUAL.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_INUSUAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_INUSUAL.aspx.vb">
+      <DependentUpon>PLD_OPE_INUSUAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_OC_ADMEXP.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_OC_ADMEXP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_OC_ADMEXP.aspx.vb">
+      <DependentUpon>PLD_OPE_OC_ADMEXP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_OPERACIONES_24HORAS.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_OPERACIONES_24HORAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_OPERACIONES_24HORAS.aspx.vb">
+      <DependentUpon>PLD_OPE_OPERACIONES_24HORAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_PROVEEDORRECURSO.aspx.designer.vb">
+      <DependentUpon>PLD_OPE_PROVEEDORRECURSO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PLD\OPERACIONES\PLD_OPE_PROVEEDORRECURSO.aspx.vb">
+      <DependentUpon>PLD_OPE_PROVEEDORRECURSO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PROHIBIDO.aspx.designer.vb">
+      <DependentUpon>PROHIBIDO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PROHIBIDO.aspx.vb">
+      <DependentUpon>PROHIBIDO.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="REPORTES\CREDITO\REP_CRED_PROX_PAGOS.aspx.designer.vb">
+      <DependentUpon>REP_CRED_PROX_PAGOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTES\CREDITO\REP_CRED_PROX_PAGOS.aspx.vb">
+      <DependentUpon>REP_CRED_PROX_PAGOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_BUSQUEDA_CP.aspx.designer.vb">
+      <DependentUpon>UNI_BUSQUEDA_CP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_BUSQUEDA_CP.aspx.vb">
+      <DependentUpon>UNI_BUSQUEDA_CP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_BUSQUEDA_PERSONA.aspx.designer.vb">
+      <DependentUpon>UNI_BUSQUEDA_PERSONA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_BUSQUEDA_PERSONA.aspx.vb">
+      <DependentUpon>UNI_BUSQUEDA_PERSONA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_DataAccess.vb" />
+    <Compile Include="UNIVERSAL\UNI_RED_SOCIAL.aspx.designer.vb">
+      <DependentUpon>UNI_RED_SOCIAL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_RED_SOCIAL.aspx.vb">
+      <DependentUpon>UNI_RED_SOCIAL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_REFERENCIAS.aspx.designer.vb">
+      <DependentUpon>UNI_REFERENCIAS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UNIVERSAL\UNI_REFERENCIAS.aspx.vb">
+      <DependentUpon>UNI_REFERENCIAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VALIDACION\VAL_VALIDACION_ADM.aspx.designer.vb">
+      <DependentUpon>VAL_VALIDACION_ADM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VALIDACION\VAL_VALIDACION_ADM.aspx.vb">
+      <DependentUpon>VAL_VALIDACION_ADM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VALIDACION\VAL_VALIDACION_EXP.aspx.designer.vb">
+      <DependentUpon>VAL_VALIDACION_EXP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VALIDACION\VAL_VALIDACION_EXP.aspx.vb">
+      <DependentUpon>VAL_VALIDACION_EXP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterMascore.Master" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="DynamicWebTwain.lpk" />
+    <Content Include="DocPlantillas\ActaComCredito.pdf" />
+    <Content Include="DocPlantillas\ActaDirCredito.pdf" />
+    <Content Include="DocPlantillas\ActaSesionCCC1.pdf" />
+    <Content Include="DocPlantillas\ActaSesionCCC2.pdf" />
+    <Content Include="DocPlantillas\AVISO.docx" />
+    <Content Include="DocPlantillas\CorteFinal.pdf" />
+    <Content Include="DocPlantillas\CorteInicial.pdf" />
+    <Content Include="DocPlantillas\COTIZACION.docx" />
+    <Content Include="DocPlantillas\EntrevistaPLD1.pdf" />
+    <Content Include="DocPlantillas\EntrevistaPLD2.pdf" />
+    <Content Include="DocPlantillas\EnvioChequeEfectivo.pdf" />
+    <Content Include="DocPlantillas\pagareGlobal.pdf" />
+    <Content Include="DocPlantillas\RepOpePLD.pdf" />
+    <Content Include="DocPlantillas\RepOpePLD2.pdf" />
+    <Content Include="DocPlantillas\TarjetaFirmasAutorizadas.pdf" />
+    <Content Include="DocPlantillas\TEMPORAL.pdf" />
+    <Content Include="DocPlantillas\~%24TIZACION.docx" />
+    <Content Include="DocPlantillas\Contratos\CONVENIO DE PRESTAMO PERSONAL PARA LIQUIDEZ.docx" />
+    <Content Include="DocPlantillas\Contratos\CONVENIO PRESTAMO PERSONAL CON AVAL.docx" />
+    <Content Include="DocPlantillas\Contratos\CONVENIO PRESTAMO PERSONAL SIN AVAL.docx" />
+    <Content Include="DocPlantillas\Manuales\FORMATO_LAYOUT_INDICES.pdf" />
+    <Content Include="DocPlantillas\Manuales\Layout_Calendario_Institucional.csv" />
+    <Content Include="DocPlantillas\Manuales\layout_indices.pdf" />
+    <Content Include="DocPlantillas\OrdenDescuentos\ordendescuentos.pdf" />
+    <Content Include="DocPlantillas\Pagares\PAGARE_AVAL.docx" />
+    <Content Include="DocPlantillas\Pagares\PAGARE_SIN_AVAL.docx" />
+    <Content Include="DocPlantillas\PlanPagos\plandepagos.pdf" />
+    <Content Include="DocPlantillas\Solicitudes\CH_ACTIVO_VIVIENDA.docx" />
+    <Content Include="DocPlantillas\Solicitudes\CH_PENSIONADO_VIVIENDA.docx" />
+    <Content Include="DocPlantillas\Solicitudes\CP_ACTIVO_CONSUMO.docx" />
+    <Content Include="DocPlantillas\Solicitudes\CP_PENSIONADO_CONSUMO.docx" />
+    <Content Include="DocPlantillas\Solicitudes\EM_ACTIVO_CONSUMO.docx" />
+    <Content Include="DocPlantillas\Solicitudes\PETICIONES.docx" />
+    <Content Include="DocPlantillas\Solicitudes\RECIBO.docx" />
+    <Content Include="DocPlantillas\Solicitudes\~%24_ACTIVO_CONSUMO.docx" />
+    <Content Include="Excel\Poliza.xlsx" />
+    <Content Include="ExcelPlantillas\ArchivoPagosXAplicarPrestamos.xlsx" />
+    <Content Include="fonts\ElegantIcons.eot" />
+    <Content Include="fonts\ElegantIcons.ttf" />
+    <Content Include="fonts\ElegantIcons.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\GothamExtraLight.eot" />
+    <Content Include="fonts\GothamExtraLight.otf" />
+    <Content Include="fonts\GothamExtraLight.ttf" />
+    <Content Include="fonts\GothamExtraLight.woff" />
+    <Content Include="fonts\GothamExtraLight.woff2" />
+    <Content Include="fonts\icofont.eot" />
+    <Content Include="fonts\icofont.ttf" />
+    <Content Include="fonts\icofont.woff" />
+    <Content Include="js\watch.jquery.json" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\SNTE5.vbproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\SNTE5.vbprojAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <Content Include="vwd.webinfo" />
+    <Content Include="rutas.config" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="tmp\CARGA_MULT.csv" />
+    <Content Include="tmp\prueba amort multiple.csv" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CARGA TRABAJADORES\" />
+    <Folder Include="DOCUMENTOS_DIGITALIZADOS\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Word\COBRANZA\DOCEVENTOS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51363</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44389/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
