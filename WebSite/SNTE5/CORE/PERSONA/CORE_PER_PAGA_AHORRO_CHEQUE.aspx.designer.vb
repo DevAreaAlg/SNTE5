@@ -86,40 +86,22 @@ Partial Public Class CORE_PER_PAGA_AHORRO_CHEQUE
     Protected WithEvents btn_BusquedaPersona As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control div_NombrePersonaBusqueda.
+    '''Control cmb_Ciclo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents div_NombrePersonaBusqueda As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents cmb_Ciclo As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control lbl_NombrePersonaBusqueda.
+    '''Control lbl_ciclos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lbl_NombrePersonaBusqueda As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control lbl_statusc.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lbl_statusc As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control lbl_maxreest.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lbl_maxreest As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lbl_ciclos As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control cmb_sistema.
@@ -138,60 +120,6 @@ Partial Public Class CORE_PER_PAGA_AHORRO_CHEQUE
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lbl_sistema As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control ddl_Region.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddl_Region As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control ddl_Delegacion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddl_Delegacion As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control ddl_EstatusCheque.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddl_EstatusCheque As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control btnConsultar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnConsultar As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control cmb_Ciclo.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents cmb_Ciclo As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control lbl_ciclos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lbl_ciclos As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txt_num.
@@ -462,6 +390,15 @@ Partial Public Class CORE_PER_PAGA_AHORRO_CHEQUE
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lbl_status As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control lbl_alerta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_alerta As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txt_notas.

@@ -58,6 +58,8 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         Session("cmd").CommandText = "SEL_SISTEMAS_X_RFC_AHORRO_CIERRE_CICLO"
         Session("parm") = Session("cmd").CreateParameter("RFC", Session("adVarChar"), Session("adParamInput"), 20, txt_IdCliente1.Text)
         Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 20, cmb_Ciclo.SelectedItem.Value)
+        Session("cmd").Parameters.Append(Session("parm"))
         Session("rs") = Session("cmd").Execute()
 
         Dim itemElija As New ListItem("ELIJA", "ELIJA")
@@ -151,7 +153,6 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
 
 #Region “Ocultar/mostrar botones”
     Private Sub mostrarBotonesMenejoCheque()
-
         btnCancelar.Visible = True
         btnPoliza.Visible = True
         btn_asignar.Visible = True
@@ -171,11 +172,9 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         txt_notas.Text = ""
         cmbChequeNota.Visible = True
         lblChequeNotas.Visible = True
-        btnVerNotasCheque.visible = True
-
+        btnVerNotasCheque.Visible = True
     End Sub
     Private Sub ocultarBotonesMenejoCheque()
-
         btnCancelar.Visible = False
         btnPoliza.Visible = False
         btn_asignar.Visible = False
@@ -192,11 +191,13 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         lbl_notas.Visible = False
         cmbTipoNota.Visible = False
         btn_GuardarNotas.Visible = False
+        Dim dtNotas As New DataTable
+        gv_Notas.DataSource = dtNotas
+        gv_Notas.DataBind()
         txt_notas.Text = ""
         cmbChequeNota.Visible = False
         lblChequeNotas.Visible = False
-        btnVerNotasCheque.visible = False
-
+        btnVerNotasCheque.Visible = False
     End Sub
     Private Sub mostrarControlesAsignar()
         btn_asignar.Visible = True
@@ -230,6 +231,45 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
 
 #Region “Metodos”
 
+    Private Sub consultarCiclosAgremiado()
+        Try
+            ocultarBotonesMenejoCheque()
+            ocultarControlesAsignar()
+            ocultarControlesSeleccionaPlaza()
+            Dim cw As New ControlsWeb()
+            Dim Hsh As Hashtable = New Hashtable()
+            Hsh.Add("@RFC", txt_IdCliente1.Text.ToString)
+            cw.LlenaDropDownList(cmb_Ciclo, "SEL_CICLOS_ACTIVOS", 0, "TEXT", "VALUE", "ELIJA")
+
+            If cmb_Ciclo.Items.Count = 1 Then
+                lbl_ciclos.Visible = False
+                cmb_Ciclo.Visible = False
+                'ocultarBotonesMenejoCheque()
+            Else
+                lbl_ciclos.Visible = True
+                cmb_Ciclo.Visible = True
+                'mostrarBotonesMenejoCheque()
+            End If
+
+        Catch ex As Exception
+            lbl_status.Text = ex.Message.ToString()
+        End Try
+    End Sub
+
+    Protected Sub cmb_ciclo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmb_Ciclo.SelectedIndexChanged
+        lbl_alerta.Text = ""
+        lbl_status.Text = ""
+        txt_num.Text = ""
+        txb_FechaCheque.Text = ""
+
+        If cmb_Ciclo.SelectedItem.Value = "ELIJA" Then
+            'btn_GetPolizaDescuentos.Visible = False
+        Else
+            consultarInformacionDeCierreAgremiado()
+            'btn_GetPolizaDescuentos.Visible = True
+        End If
+    End Sub
+
     Private Sub consultarInformacionDeCierreAgremiado(Optional ByVal plaza_agremiado As String = "")
 
         Dim custDA As New OleDb.OleDbDataAdapter()
@@ -259,12 +299,15 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Session("cmd").CommandText = "SEL_INFO_DE_CIERRE_CICLO_AGREMIADO_RETRO"
             Session("parm") = Session("cmd").CreateParameter("RFC", Session("adVarChar"), Session("adParamInput"), 20, txt_IdCliente1.Text.ToString)
             Session("cmd").Parameters.Append(Session("parm"))
-
             If plaza_agremiado <> "" Then
                 Session("parm") = Session("cmd").CreateParameter("TIPO_PLAZA", Session("adVarChar"), Session("adParamInput"), 20, plaza_agremiado)
                 Session("cmd").Parameters.Append(Session("parm"))
+            Else
+                Session("parm") = Session("cmd").CreateParameter("TIPO_PLAZA", Session("adVarChar"), Session("adParamInput"), 20, "")
+                Session("cmd").Parameters.Append(Session("parm"))
             End If
-
+            Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 20, cmb_Ciclo.SelectedItem.Value)
+            Session("cmd").Parameters.Append(Session("parm"))
             Session("rs") = Session("cmd").Execute()
 
             'se agregan los expedientes a una tabla en memoria
@@ -281,42 +324,29 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         End Try
 
         Try
-
-
             If DAG_Analisis.Rows.Count < 1 Then
-
                 lbl_status.Text = "No se encontró al agremiado: " + CStr(txt_IdCliente1.Text.ToString)
                 ocultarBotonesMenejoCheque()
                 ocultarControlesAsignar()
                 ocultarControlesSeleccionaPlaza()
                 Exit Sub
-
             End If
 
             If DAG_Analisis.Rows.Count > 1 Then
-
                 lbl_status.Text = "Seleccione plaza"
                 ocultarBotonesMenejoCheque()
                 ocultarControlesAsignar()
                 llenar_cmbSistema()
                 mostrarControlesSeleccionaPlaza()
                 Exit Sub
-
             ElseIf DAG_Analisis.Rows.Count = 1 Then
-
                 mostrarBotonesMenejoCheque()
                 mostrarControlesAsignar()
                 ocultarControlesSeleccionaPlaza()
                 Llenar_cmbChequesTrabajador()
-
             Else
-
                 lbl_status.Text = "No hay registros para procesar"
-
             End If
-
-
-
 
             For Each Fila As GridViewRow In DAG_Analisis.Rows
                 If Not Fila Is Nothing Then
@@ -354,7 +384,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
 
                     Else
 
-                        lbl_status.Text = "Este registro ya cuenta con número de cheque asignado"
+                        lbl_alerta.Text = "Este registro ya cuenta con número de cheque asignado"
 
                     End If
 
@@ -381,7 +411,6 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             End Try
 
         End Try
-
     End Sub
     Private Sub ObtieneRegistrosTrabajadorRFC()
 
@@ -566,7 +595,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
 
                     Else
 
-                        lbl_status.Text = "Este registro ya cuenta con número de cheque asignado"
+                        lbl_alerta.Text = "Este registro ya cuenta con número de cheque asignado"
                         Exit Sub
 
                     End If
@@ -589,22 +618,20 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Session("cmd") = New ADODB.Command()
             Session("cmd").ActiveConnection = Session("Con")
             Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
-
             Session("parm") = Session("cmd").CreateParameter("NUM_CONTROL", Session("adVarChar"), Session("adParamInput"), 50, num_control)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("SALDO_AHORRO", Session("adVarChar"), Session("adParamInput"), 50, saldo_ahorro)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("NO_CHEQUE", Session("adVarChar"), Session("adParamInput"), 50, no_cheque)
             Session("cmd").Parameters.Append(Session("parm"))
-
-            Session("parm") = Session("cmd").CreateParameter("ID_USUARIO", Session("adVarChar"), Session("adParamInput"), 50, Session("USERID").ToString)
+            Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 50, cmb_Ciclo.SelectedItem.Value)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("PLAZA_AGREMIADO", Session("adVarChar"), Session("adParamInput"), 50, plaza_agremiado)
             Session("cmd").Parameters.Append(Session("parm"))
-
+            Session("parm") = Session("cmd").CreateParameter("ID_USUARIO", Session("adVarChar"), Session("adParamInput"), 50, Session("USERID").ToString)
+            Session("cmd").Parameters.Append(Session("parm"))
+            Session("parm") = Session("cmd").CreateParameter("SESION", Session("adVarChar"), Session("adParamInput"), 50, Session("Sesion").ToString)
+            Session("cmd").Parameters.Append(Session("parm"))
             Session("cmd").CommandText = "INS_NUM_CHEQUE_AHORRO_INDIVIDUAL"
             Session("rs") = Session("cmd").Execute()
 
@@ -685,19 +712,16 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Session("cmd") = New ADODB.Command()
             Session("cmd").ActiveConnection = Session("Con")
             Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
-
             Session("parm") = Session("cmd").CreateParameter("NUM_CONTROL", Session("adVarChar"), Session("adParamInput"), 50, num_control)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("NO_CHEQUE", Session("adVarChar"), Session("adParamInput"), 50, no_cheque)
             Session("cmd").Parameters.Append(Session("parm"))
-
+            Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 50, cmb_Ciclo.SelectedItem.Value)
+            Session("cmd").Parameters.Append(Session("parm"))
             Session("parm") = Session("cmd").CreateParameter("ID_USUARIO", Session("adVarChar"), Session("adParamInput"), 50, Session("USERID").ToString)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("PLAZA_AGREMIADO", Session("adVarChar"), Session("adParamInput"), 50, plaza_agremiado)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("cmd").CommandText = "UPD_ESTATUS_ENTREGA_CHEQUE_AHORRO"
             Session("rs") = Session("cmd").Execute()
 
@@ -783,19 +807,16 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Session("cmd") = New ADODB.Command()
             Session("cmd").ActiveConnection = Session("Con")
             Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
-
             Session("parm") = Session("cmd").CreateParameter("NUM_CONTROL", Session("adVarChar"), Session("adParamInput"), 50, num_control)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("NO_CHEQUE", Session("adVarChar"), Session("adParamInput"), 50, no_cheque)
             Session("cmd").Parameters.Append(Session("parm"))
-
+            Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 50, cmb_Ciclo.SelectedItem.Value)
+            Session("cmd").Parameters.Append(Session("parm"))
             Session("parm") = Session("cmd").CreateParameter("ID_USUARIO", Session("adVarChar"), Session("adParamInput"), 50, Session("USERID").ToString)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("PLAZA_AGREMIADO", Session("adVarChar"), Session("adParamInput"), 50, plaza_agremiado)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("cmd").CommandText = "UPD_ESTATUS_CANCELAR_CHEQUE_AHORRO"
             Session("rs") = Session("cmd").Execute()
 
@@ -875,19 +896,16 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Session("cmd") = New ADODB.Command()
             Session("cmd").ActiveConnection = Session("Con")
             Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
-
             Session("parm") = Session("cmd").CreateParameter("NUM_CONTROL", Session("adVarChar"), Session("adParamInput"), 50, num_control)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("NO_CHEQUE", Session("adVarChar"), Session("adParamInput"), 50, no_cheque)
             Session("cmd").Parameters.Append(Session("parm"))
-
+            Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 50, cmb_Ciclo.SelectedItem.Value)
+            Session("cmd").Parameters.Append(Session("parm"))
             Session("parm") = Session("cmd").CreateParameter("ID_USUARIO", Session("adVarChar"), Session("adParamInput"), 50, Session("USERID").ToString)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("parm") = Session("cmd").CreateParameter("PLAZA_AGREMIADO", Session("adVarChar"), Session("adParamInput"), 50, plaza_agremiado)
             Session("cmd").Parameters.Append(Session("parm"))
-
             Session("cmd").CommandText = "UPD_ESTATUS_PAGAR_CHEQUE_AHORRO"
             Session("rs") = Session("cmd").Execute()
 
@@ -910,181 +928,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         End Try
 
     End Sub
-    Protected Sub GENERAR_CHEQUE()
-        Dim fecha As String = ""
-        Dim no_cheque As String = String.Empty
 
-        Dim AGREMIADO As String = String.Empty
-        Dim RFC As String = String.Empty
-        Dim NUMCHEQUE As String = String.Empty
-        Dim CANTIDAD As String = String.Empty
-        Dim CANTIDAD_LETRA As String = String.Empty
-        Dim FECHA_ As String = String.Empty
-        Dim DELEGACION As String = String.Empty
-        Dim AGREMIADO2 As String = String.Empty
-        Dim CANTIDAD2 As String = String.Empty
-        Dim CANTIDAD_LETRA2 As String = String.Empty
-        Dim FECHA_2 As String = String.Empty
-
-
-        If chb_Fecha.Checked Then
-            fecha = ""
-        Else
-            fecha = txb_FechaCheque.Text
-        End If
-
-        Try
-
-            If DAG_Analisis.Rows.Count < 1 Then
-                lbl_status.Text = "No hay registros para procesar"
-                Exit Sub
-            End If
-            For Each Fila As GridViewRow In DAG_Analisis.Rows
-                If Not Fila Is Nothing Then
-
-
-                    If Fila.Cells(8).Text.ToString().Equals("&nbsp;") Or Fila.Cells(8).Text.ToString().Equals("") Or Fila.Cells(8).Text.ToString().Equals("0") Then
-                        lbl_status.Text = "Este registro no cuenta con número de cheque"
-                        Exit Sub
-                    ElseIf Not Fila.Cells(9).Text.ToString().Equals("EMITIDO") Then
-                        lbl_status.Text = "El cheque debe estar en estatus 'EMITIDO' para poder ser generado"
-                        Exit Sub
-                    Else
-                        no_cheque = CStr(Fila.Cells(8).Text.ToString())
-                    End If
-
-                Else
-                    lbl_status.Text = "No hay registros para procesar"
-                    Exit Sub
-                End If
-            Next
-
-        Catch ex As Exception
-
-        End Try
-
-        Session("ms") = New System.IO.MemoryStream()
-        'Crea un reader para la solicitud
-
-        Dim Reader As iTextSharp.text.pdf.PdfReader = Nothing
-        'Ruta donde está el PDF
-        Reader = New iTextSharp.text.pdf.PdfReader(Session("APPATH").ToString + "\DocPlantillas\Solicitudes\CHEQUE_FINAL.pdf")
-        'Traigo el total de paginas
-        Dim n As Integer = 0
-        n = Reader.NumberOfPages
-
-        'Traigo el tamaño de la primera pagina
-        Dim psize As iTextSharp.text.Rectangle
-        psize = Reader.GetPageSize(1)
-
-        Dim width, height As Single
-        width = psize.Width
-        height = psize.Height
-
-        Dim document As New iTextSharp.text.Document(psize, 0, 0, 0, 0)
-
-        With document
-            .AddAuthor("SALTILLO -  SALTILLO")
-            .AddCreationDate()
-            .AddCreator("SALTILLO - Cheque")
-            .AddSubject("Cheque")
-            .AddTitle("Cheque")
-            .AddKeywords("Cheque")
-            .Open()
-        End With
-
-        'CREACION DE UN WRITER QUE LEA EL DOCUMENTO
-        Dim XT, YT, XAux As Single
-        Dim writer As iTextSharp.text.pdf.PdfWriter
-        writer = iTextSharp.text.pdf.PdfWriter.GetInstance(document, Session("ms"))
-
-        'Se abre el documento
-        document.Open()
-        '-----------J
-        Session("cmd") = New ADODB.Command()
-        Session("Con").Open()
-        Session("cmd").ActiveConnection = Session("Con")
-        Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
-        Session("parm") = Session("cmd").CreateParameter("FECHA", Session("adVarChar"), Session("adParamInput"), 10, fecha)
-        Session("cmd").Parameters.Append(Session("parm"))
-        Session("parm") = Session("cmd").CreateParameter("NUMCHEQUE", Session("adVarChar"), Session("adParamInput"), 10, no_cheque)
-        Session("cmd").Parameters.Append(Session("parm"))
-        Session("parm") = Session("cmd").CreateParameter("IDUSER", Session("adVarChar"), Session("adParamInput"), 10, "0")
-        Session("cmd").Parameters.Append(Session("parm"))
-        Session("parm") = Session("cmd").CreateParameter("SESION", Session("adVarChar"), Session("adParamInput"), 10, "")
-        Session("cmd").Parameters.Append(Session("parm"))
-        Session("cmd").CommandText = "SEL_DATOS_CHEQUE_AHORRO_RETRO"
-        Session("rs") = Session("cmd").Execute()
-        If Not Session("rs").EOF Then
-
-
-            AGREMIADO = Session("rs").FIELDS("AGREMIADO").value.ToString
-            RFC = Session("rs").FIELDS("RFC").value.ToString
-            NUMCHEQUE = Session("rs").FIELDS("NUM_CHEQUE").value.ToString
-            CANTIDAD = Session("rs").FIELDS("SALDO_AHORRO").value.ToString
-            CANTIDAD_LETRA = Session("rs").FIELDS("SALDO_AHORRO_LETRA").value.ToString
-            FECHA_ = Session("rs").FIELDS("FECHA").value.ToString
-            DELEGACION = Session("rs").FIELDS("DELEGACION").value.ToString
-            AGREMIADO2 = Session("rs").FIELDS("AGREMIADO").value.ToString
-            CANTIDAD2 = Session("rs").FIELDS("SALDO_AHORRO").value.ToString
-            CANTIDAD_LETRA2 = Session("rs").FIELDS("SALDO_AHORRO_LETRA").value.ToString
-            FECHA_2 = Session("rs").FIELDS("FECHA").value.ToString
-        End If
-        Session("Con").Close()
-        '---------J
-
-
-        Dim cb As iTextSharp.text.pdf.PdfContentByte
-        cb = writer.DirectContent
-
-        ' METO LA SOLICITUD ORIGINAL
-        Dim Cheque As iTextSharp.text.pdf.PdfImportedPage
-
-        Cheque = writer.GetImportedPage(Reader, 1)
-        cb.AddTemplate(Cheque, 1, 0, 0, 1, 0, 0)
-
-        'ready to draw text
-        cb.BeginText()
-        Dim bf As iTextSharp.text.pdf.BaseFont
-        'Solo tiene 3 formatos Helvetica,Time new ,Arial pero la recomendada es la Helvetica
-        bf = iTextSharp.text.pdf.BaseFont.CreateFont(iTextSharp.text.pdf.BaseFont.HELVETICA, iTextSharp.text.pdf.BaseFont.CP1252, iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED)
-        cb.SetFontAndSize(bf, 9)
-
-        Dim X, Y As Single
-        Dim X2, Y2 As Single
-        Dim distanciaHorizontal As Integer = 240.0R
-        Dim distanciaVertical As Integer = 15
-
-        X = 450  'X empieza de izquierda a derecha
-        ''y estaba en 50
-        Y = 735 'Y empieza de abajo hacia arriba
-
-        Y2 = 595
-        X2 = 60
-
-
-        Dim XOrdena As Integer
-        Dim YOrdena As Integer
-
-
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, FECHA_, 430, 743, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, AGREMIADO, 35, 695, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD.Replace("$", ""), 480, 698, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD_LETRA, 35, 669, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, AGREMIADO2, 105, 520, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, NUMCHEQUE, 428, 520, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, RFC, 130, 484, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, FECHA_2, 267, 484, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD2, 390, 484, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, DELEGACION, 510, 484, 0)
-        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD_LETRA, 190, 430, 0)
-
-        cb.EndText()
-
-        document.Close()
-        '---------
-
-    End Sub
     Protected Sub GENERAR_POLIZA_CHEQUE()
         Dim MyPDF As New PDFCreator(Session("APPATH").ToString, "DocPlantillas\Solicitudes", "Word", "POLIZA_CHEQUER", "POLIZA_CHEQUER")
         Dim etiquetas() As String = {"NOMBRE_AGREMIADO", "RFC", "NUMERO", "CANTIDAD", "CANTIDAD_LETRA", "FECHA", "CENTRO_TRAB"}
@@ -1146,6 +990,8 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         Session("parm") = Session("cmd").CreateParameter("FECHA", Session("adVarChar"), Session("adParamInput"), 20, txb_FechaCheque.Text)
         Session("cmd").Parameters.Append(Session("parm"))
         Session("parm") = Session("cmd").CreateParameter("NUMCHEQUE", Session("adVarChar"), Session("adParamInput"), 20, no_cheque)
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 20, cmb_Ciclo.SelectedItem.Value)
         Session("cmd").Parameters.Append(Session("parm"))
         Session("parm") = Session("cmd").CreateParameter("IDUSER", Session("adVarChar"), Session("adParamInput"), 20, "0")
         Session("cmd").Parameters.Append(Session("parm"))
@@ -1265,18 +1111,22 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
 #Region “Eventos”
 
     Protected Sub btn_Continuar_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Continuar.Click
-
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
+        txt_num.Text = ""
+        Dim dtAnalisis As New DataTable
+        DAG_Analisis.DataSource = dtAnalisis
+        DAG_Analisis.DataBind()
         If txt_IdCliente1.Text = "" Then
             lbl_status.Text = "Ingrese número de control"
         Else
-            consultarInformacionDeCierreAgremiado()
+            consultarCiclosAgremiado()
         End If
 
     End Sub
 
     Protected Sub btn_Asignar_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_asignar.Click
-
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         'AsignarCheques()
         AsignarChequeTrabajador()
@@ -1284,16 +1134,19 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Protected Sub btn_Entregar_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Entregar.Click
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         EntregarChequeTrabajador()
     End Sub
 
     Protected Sub btn_Pagar_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_PagarCheques.Click
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         pagarChequeTrabajador()
     End Sub
 
     Protected Sub btn_Cancelar_click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancelar.Click
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         cancelarChequeTrabajador()
     End Sub
@@ -1307,6 +1160,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
         End If
     End Sub
     Protected Sub btn_Imprimir_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_imprimir.Click
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
 
         If chb_Fecha.Checked = False And txb_FechaCheque.Text = "" Then
@@ -1315,7 +1169,179 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
             Return
         End If
 
-        GENERAR_CHEQUE()
+        Dim fecha As String = ""
+        Dim no_cheque As String = String.Empty
+
+        Dim AGREMIADO As String = String.Empty
+        Dim RFC As String = String.Empty
+        Dim NUMCHEQUE As String = String.Empty
+        Dim CANTIDAD As String = String.Empty
+        Dim CANTIDAD_LETRA As String = String.Empty
+        Dim FECHA_ As String = String.Empty
+        Dim DELEGACION As String = String.Empty
+        Dim AGREMIADO2 As String = String.Empty
+        Dim CANTIDAD2 As String = String.Empty
+        Dim CANTIDAD_LETRA2 As String = String.Empty
+        Dim FECHA_2 As String = String.Empty
+
+
+        If chb_Fecha.Checked Then
+            fecha = ""
+        Else
+            fecha = txb_FechaCheque.Text
+        End If
+
+        Try
+
+            If DAG_Analisis.Rows.Count < 1 Then
+                lbl_status.Text = "No hay registros para procesar"
+                Exit Sub
+            End If
+            For Each Fila As GridViewRow In DAG_Analisis.Rows
+                If Not Fila Is Nothing Then
+
+
+                    If Fila.Cells(8).Text.ToString().Equals("&nbsp;") Or Fila.Cells(8).Text.ToString().Equals("") Or Fila.Cells(8).Text.ToString().Equals("0") Then
+                        lbl_status.Text = "Este registro no cuenta con número de cheque"
+                        Exit Sub
+                        'ElseIf Not Fila.Cells(9).Text.ToString().Equals("EMITIDO") Then
+                        '    lbl_status.Text = "El cheque debe estar en estatus 'EMITIDO' para poder ser generado"
+                        '    Exit Sub
+                    Else
+                        no_cheque = CStr(Fila.Cells(8).Text.ToString())
+                    End If
+
+                Else
+                    lbl_status.Text = "No hay registros para procesar"
+                    Exit Sub
+                End If
+            Next
+
+        Catch ex As Exception
+
+        End Try
+
+        Session("ms") = New System.IO.MemoryStream()
+        'Crea un reader para la solicitud
+
+        Dim Reader As iTextSharp.text.pdf.PdfReader = Nothing
+        'Ruta donde está el PDF
+        Reader = New iTextSharp.text.pdf.PdfReader(Session("APPATH").ToString + "\DocPlantillas\Solicitudes\CHEQUE_FINAL.pdf")
+        'Traigo el total de paginas
+        Dim n As Integer = 0
+        n = Reader.NumberOfPages
+
+        'Traigo el tamaño de la primera pagina
+        Dim psize As iTextSharp.text.Rectangle
+        psize = Reader.GetPageSize(1)
+
+        Dim width, height As Single
+        width = psize.Width
+        height = psize.Height
+
+        Dim document As New iTextSharp.text.Document(psize, 0, 0, 0, 0)
+
+        With document
+            .AddAuthor("SALTILLO -  SALTILLO")
+            .AddCreationDate()
+            .AddCreator("SALTILLO - Cheque")
+            .AddSubject("Cheque")
+            .AddTitle("Cheque")
+            .AddKeywords("Cheque")
+            .Open()
+        End With
+
+        'CREACION DE UN WRITER QUE LEA EL DOCUMENTO
+        Dim XT, YT, XAux As Single
+        Dim writer As iTextSharp.text.pdf.PdfWriter
+        writer = iTextSharp.text.pdf.PdfWriter.GetInstance(document, Session("ms"))
+
+        'Se abre el documento
+        document.Open()
+        '-----------J
+        Session("cmd") = New ADODB.Command()
+        Session("Con").Open()
+        Session("cmd").ActiveConnection = Session("Con")
+        Session("cmd").CommandType = System.Data.CommandType.StoredProcedure
+        Session("parm") = Session("cmd").CreateParameter("FECHA", Session("adVarChar"), Session("adParamInput"), 10, fecha)
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("NUMCHEQUE", Session("adVarChar"), Session("adParamInput"), 10, no_cheque)
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("CICLO", Session("adVarChar"), Session("adParamInput"), 20, cmb_Ciclo.SelectedItem.Value)
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("IDUSER", Session("adVarChar"), Session("adParamInput"), 10, "0")
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("parm") = Session("cmd").CreateParameter("SESION", Session("adVarChar"), Session("adParamInput"), 10, "")
+        Session("cmd").Parameters.Append(Session("parm"))
+        Session("cmd").CommandText = "SEL_DATOS_CHEQUE_AHORRO_RETRO"
+        Session("rs") = Session("cmd").Execute()
+        If Not Session("rs").EOF Then
+
+
+            AGREMIADO = Session("rs").FIELDS("AGREMIADO").value.ToString
+            RFC = Session("rs").FIELDS("RFC").value.ToString
+            NUMCHEQUE = Session("rs").FIELDS("NUM_CHEQUE").value.ToString
+            CANTIDAD = Session("rs").FIELDS("SALDO_AHORRO").value.ToString
+            CANTIDAD_LETRA = Session("rs").FIELDS("SALDO_AHORRO_LETRA").value.ToString
+            FECHA_ = Session("rs").FIELDS("FECHA").value.ToString
+            DELEGACION = Session("rs").FIELDS("DELEGACION").value.ToString
+            AGREMIADO2 = Session("rs").FIELDS("AGREMIADO").value.ToString
+            CANTIDAD2 = Session("rs").FIELDS("SALDO_AHORRO").value.ToString
+            CANTIDAD_LETRA2 = Session("rs").FIELDS("SALDO_AHORRO_LETRA").value.ToString
+            FECHA_2 = Session("rs").FIELDS("FECHA").value.ToString
+        End If
+        Session("Con").Close()
+        '---------J
+
+
+        Dim cb As iTextSharp.text.pdf.PdfContentByte
+        cb = writer.DirectContent
+
+        ' METO LA SOLICITUD ORIGINAL
+        Dim Cheque As iTextSharp.text.pdf.PdfImportedPage
+
+        Cheque = writer.GetImportedPage(Reader, 1)
+        cb.AddTemplate(Cheque, 1, 0, 0, 1, 0, 0)
+
+        'ready to draw text
+        cb.BeginText()
+        Dim bf As iTextSharp.text.pdf.BaseFont
+        'Solo tiene 3 formatos Helvetica,Time new ,Arial pero la recomendada es la Helvetica
+        bf = iTextSharp.text.pdf.BaseFont.CreateFont(iTextSharp.text.pdf.BaseFont.HELVETICA, iTextSharp.text.pdf.BaseFont.CP1252, iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED)
+        cb.SetFontAndSize(bf, 9)
+
+        Dim X, Y As Single
+        Dim X2, Y2 As Single
+        Dim distanciaHorizontal As Integer = 240.0R
+        Dim distanciaVertical As Integer = 15
+
+        X = 450  'X empieza de izquierda a derecha
+        ''y estaba en 50
+        Y = 735 'Y empieza de abajo hacia arriba
+
+        Y2 = 595
+        X2 = 60
+
+
+        Dim XOrdena As Integer
+        Dim YOrdena As Integer
+
+
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, FECHA_, 430, 743, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, AGREMIADO, 35, 695, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD.Replace("$", ""), 480, 698, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD_LETRA, 35, 669, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, AGREMIADO2, 105, 520, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, NUMCHEQUE, 428, 520, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, RFC, 130, 484, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, FECHA_2, 267, 484, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD2, 390, 484, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, DELEGACION, 510, 484, 0)
+        cb.ShowTextAligned(iTextSharp.text.pdf.PdfContentByte.ALIGN_LEFT, CANTIDAD_LETRA, 190, 430, 0)
+
+        cb.EndText()
+
+        document.Close()
 
         Try
 
@@ -1345,6 +1371,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Protected Sub btn_Poliza_click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPoliza.Click
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
 
         GENERAR_POLIZA_CHEQUE()
@@ -1352,6 +1379,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub ckb_deshacer_CheckedChanged(sender As Object, e As EventArgs) Handles ckb_deshacer.CheckedChanged
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If ckb_deshacer.Checked Then
             For i As Integer = 0 To DAG_Analisis.Rows.Count() - 1
@@ -1368,6 +1396,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub ckb_ImprimirTodos_CheckedChanged(sender As Object, e As EventArgs) Handles ckb_ImprimirTodos.CheckedChanged
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If ckb_ImprimirTodos.Checked Then
             For i As Integer = 0 To DAG_Analisis.Rows.Count() - 1
@@ -1384,6 +1413,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub ckb_Entregado_CheckedChanged(sender As Object, e As EventArgs) Handles ckb_Entregado.CheckedChanged
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If ckb_Entregado.Checked Then
             For i As Integer = 0 To DAG_Analisis.Rows.Count() - 1
@@ -1400,6 +1430,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub ckb_Pagar_CheckedChanged(sender As Object, e As EventArgs) Handles ckb_Pagar.CheckedChanged
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If ckb_Pagar.Checked Then
             For i As Integer = 0 To DAG_Analisis.Rows.Count() - 1
@@ -1416,6 +1447,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub ckb_cancelar_CheckedChanged(sender As Object, e As EventArgs) Handles ckb_cancelar.CheckedChanged
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If ckb_cancelar.Checked Then
             For i As Integer = 0 To DAG_Analisis.Rows.Count() - 1
@@ -1432,7 +1464,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
 
     Private Sub cmbSistema_SelectionChanged(sender As Object, e As EventArgs) Handles cmb_sistema.SelectedIndexChanged
-
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
 
         If cmb_sistema.SelectedValue <> "ELIJA" Then
@@ -1445,7 +1477,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     ''btn_GuardarNotas   btnListdoDeCheques
 
     Protected Sub btn_GuardarNotas_click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_GuardarNotas.Click
-
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If cmbTipoNota.SelectedValue.Equals("-1") Then
             lbl_status.Text = "Seleccione tipo de nota para continuar."
@@ -1458,7 +1490,7 @@ Public Class CORE_PER_PAGA_RETRO_CHEQUE
     End Sub
     ''btnVerNotasCheque.visible =True
     Protected Sub btnVerNotasCheque_click(ByVal sender As Object, ByVal e As EventArgs) Handles btnVerNotasCheque.Click
-
+        lbl_alerta.Text = ""
         lbl_status.Text = ""
         If cmbChequeNota.SelectedValue.Equals("-1") Then
             lbl_status.Text = "Seleccione #cheque para continuar."

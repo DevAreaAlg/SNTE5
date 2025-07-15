@@ -1,4 +1,4 @@
-﻿+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterMascore.master" CodeBehind="CORE_PER_PAGA_AHORRO_CHEQUE.aspx.vb" Inherits="SNTE5.CORE_PER_PAGA_AHORRO_CHEQUE" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterMascore.master" CodeBehind="CORE_PER_PAGA_AHORRO_CHEQUE.aspx.vb" Inherits="SNTE5.CORE_PER_PAGA_AHORRO_CHEQUE" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -38,18 +38,17 @@
                                 <asp:Button ID="btn_BusquedaPersona" CssClass="btn btn-primary module_subsec_elements no_tbm" runat="server" Text="Buscar afiliado" Visible="false" />
                             </div>
                         </div>
-
-                        <div class="module_subsec columned low_m align_items_flex_center" runat="server" id="div_NombrePersonaBusqueda" visible="false">
-                            <span class="module_subsec_medium-elements module_subsec_elements no_m">Nombre de afiliado: </span>
-                            <asp:Label ID="lbl_NombrePersonaBusqueda" runat="server"></asp:Label>
-                        </div>
-
-                        <asp:Label ID="lbl_statusc" runat="server" CssClass="module_subsec flex_center alerta"></asp:Label>
-                        <asp:Label ID="lbl_maxreest" runat="server" CssClass="module_subsec flex_center alerta"></asp:Label>
-
                     </div>
-
                     <div class="module_subsec columned low_m three_columns">
+                        <div class="module_subsec_elements">
+                            <div class="text_input_nice_div module_subsec_elements_content">
+                                <asp:DropDownList ID="cmb_Ciclo" runat="server" class="btn btn-primary2 dropdown_label" Visible="false" AutoPostBack="true">
+                                </asp:DropDownList>
+                                <div class="text_input_nice_labels">
+                                    <asp:Label ID="lbl_ciclos" runat="server" CssClass="text_input_nice_label" Visible="false" Text="Ciclo:"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="module_subsec_elements text_input_nice_div">
 
                             <asp:DropDownList ID="cmb_sistema" runat="server" class="btn btn-primary2 dropdown_label" Visible="false" AutoPostBack="true">
@@ -60,64 +59,9 @@
                         </div>
                     </div>
 
-                    <div class="module_subsec columned low_m five_columns">
-                        <!-- combobox Región -->
-                        <div class="module_subsec_elements">
-                            <div class="text_input_nice_div module_subsec_elements_content">
-                                <asp:DropDownList ID="ddl_Region" CssClass="btn btn-primary2 dropdown_label"
-                                    runat="server" AutoPostBack="false" Visible="false" />
-                                <div class="text_input_nice_labels" visible="false">
-                                    <span class="text_input_nice_label" visible="false"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- combobox Delegación -->
-                        <div class="module_subsec_elements">
-                            <div class="text_input_nice_div module_subsec_elements_content">
-                                <asp:DropDownList ID="ddl_Delegacion" CssClass="btn btn-primary2 dropdown_label"
-                                    runat="server" AutoPostBack="false" Visible="false" />
-                                <div class="text_input_nice_labels">
-                                    <span class="text_input_nice_label" visible="false"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- combobox Estatus Cheque -->
-                        <div class="module_subsec_elements">
-                            <div class="text_input_nice_div module_subsec_elements_content">
-                                <asp:DropDownList ID="ddl_EstatusCheque" CssClass="btn btn-primary2 dropdown_label"
-                                    runat="server" AutoPostBack="false" Visible="false" />
-                                <div class="text_input_nice_labels">
-                                    <span class="text_input_nice_label" visible="false"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- button Buscar -->
-                        <div class="module_subsec_elements">
-                            <div class="text_input_nice_div module_subsec_elements_content">
-                                <asp:Button ID="btnConsultar" runat="server" class="btn btn-primary" Text="Consultar" ValidationGroup="fechaLimitePago" Visible="false" />
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="module_subsec columned low_m  four_columns">
-                        <div class="module_subsec_elements">
-                            <div class="text_input_nice_div module_subsec_elements_content">
-
-                                <asp:DropDownList ID="cmb_Ciclo" runat="server" class="btn btn-primary2 dropdown_label" Visible="false" AutoPostBack="true">
-                                </asp:DropDownList>
-                                <div class="text_input_nice_labels">
-                                    <asp:Label ID="lbl_ciclos" runat="server" CssClass="text_input_nice_label" Visible="false" Text="Ciclo:"></asp:Label>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
+                    
 
                     <div visible="false" class="module_subsec columned low_m three_columns">
-
                         <div class="module_subsec_elements text_input_nice_div">
                             <asp:TextBox runat="server" ID="txt_num" CssClass="text_input_nice_input" MaxLength="18" Visible="false" />
                             <div class="text_input_nice_labels">
@@ -135,7 +79,6 @@
                         <div class="module_subsec low_m no_lm" style="margin-bottom: 10px;">
                             <asp:Button ID="btn_asignar" CssClass="btn btn-primary" runat="server" Text="Asignar" ValidationGroup="val_prestamo" AUTOPOSTBACK="TRUE" Visible="false" />
                         </div>
-
                     </div>
 
                     <div align="right">
@@ -185,7 +128,7 @@
                     <br />
                     <div class="overflow_x shadow ">
                         <asp:GridView ID="DAG_Analisis" runat="server" AutoGenerateColumns="False" CssClass="table table-striped"
-                            GridLines="None" Width="100%" AutoPostBack="true" Visible="false">
+                            GridLines="None" Width="100%" AutoPostBack="true" Visible="true">
                             <HeaderStyle CssClass="table_header" />
                             <Columns>
 
@@ -372,9 +315,13 @@
 
                 </triggers>
 
-
                 <div align="center">
                     <asp:Label ID="lbl_status" runat="server" CssClass="alerta" Text=""></asp:Label>
+
+                </div>
+                <div align="center">
+
+                    <asp:Label ID="lbl_alerta" runat="server" CssClass="alerta" Text=""></asp:Label>
                 </div>
 
                 <div class="module_subsec low_m">
@@ -402,8 +349,8 @@
                         </div>
                         &nbsp;&nbsp;&nbsp;
                         <div class="text_input_nice_labels">
-                            <asp:Label ID="lblChequeNotas" runat="server" CssClass="text_input_nice_label" Visible="true" Text="Cheque:"></asp:Label>
-                            <asp:DropDownList ID="cmbChequeNota" runat="server" class="btn btn-primary2 dropdown_label" Visible="true" AutoPostBack="true">
+                            <asp:Label ID="lblChequeNotas" runat="server" CssClass="text_input_nice_label" Visible="false" Text="Cheque:"></asp:Label>
+                            <asp:DropDownList ID="cmbChequeNota" runat="server" class="btn btn-primary2 dropdown_label" Visible="false" AutoPostBack="true">
                             </asp:DropDownList>
                         </div>
 

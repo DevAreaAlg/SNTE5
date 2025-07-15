@@ -122,6 +122,24 @@ Partial Public Class CORE_PER_PAGA_RETRO_CHEQUE
     Protected WithEvents lbl_maxreest As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Control cmb_Ciclo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cmb_Ciclo As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control lbl_ciclos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_ciclos As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Control cmb_sistema.
     '''</summary>
     '''<remarks>
@@ -444,6 +462,15 @@ Partial Public Class CORE_PER_PAGA_RETRO_CHEQUE
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lbl_status As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control lbl_alerta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lbl_alerta As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control txt_notas.
